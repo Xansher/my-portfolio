@@ -1,12 +1,6 @@
-<!--<div style="min-height: 100%; height: 100%; display: flex; flex-direction: column; flex-flow: column;">-->
-  <app-menu></app-menu>
-    <div [@routeAnimations]="prepareRoute(outlet)" >
-      <router-outlet #outlet="outlet"></router-outlet>
-      
-    </div>
-    
-    <app-footer></app-footer>
-  
-<!--</div> -->
+<app-menu></app-menu>
+<div [@routeAnimations]="prepareRoute(outlet)" style="margin: 1.5rem 0 0 0;">
+  <router-outlet #outlet="outlet"></router-outlet>
 
+</div>
 

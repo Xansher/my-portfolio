@@ -1,78 +1,64 @@
-h1 {
-    color: #66FCF1;
-    margin-top: 0;
-    align-content: center;
+.container {
+    display: flex;
+    flex-direction: column-reverse;
+    padding: 0 1em;
 }
 
-.container{
-    width:100%;  
-    display: flex; 
-    flex-direction: row; 
-    
+.column {
+    max-width: 100%;
+}
+
+.center {
+    text-align: center;
+    position:relative;
+    top: -3rem
+}
+.label {
+    font-size: 92px;
+    font-weight: bold;
+    color: #43A1FF;
+    letter-spacing: 0.15em
+}
+
+.label-2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.label-3 {
+    font-size: 22px;
+    font-weight: 200;
+    padding-bottom: 1rem;
+}
+
+.img-container {
+    max-width: inherit;
+    display: flex;
+    justify-content: center;
+}
+
+.img-container img {
+    max-width: 70%;
+    height: auto;
 }
 
 
-
-.image {
-    position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: -1;
-}
-@keyframes example {
-    0%   {border:1px solid pink}
-    25%  {border:1px solid yellow}
-    50%  {border:1px solid blue}
-    75%  {border:1px solid green}
-    100% {border:1px solid red}
-  }
-
-  .item {
-      width: 65%;
-  }
-  .item2{
-      width: 35%;
-  }
-.gradient-border{
-    position: relative;
-    --border-width: 3px;
-   /* animation-name: example;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;*/
-    background: #303030;
-    border-radius: var(--border-width);
-}
-.gradient-border::after{
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(
-      60deg,
-      hsl(179, 85%, 66%),
-      hsl(214, 96%, 38%),
-      hsl(194, 90%, 53%),
-      hsl(214, 96%, 38%),
-      hsl(179, 85%, 66%),
-      hsl(214, 96%, 38%),
-      hsl(192, 100%, 64%),
-      hsl(179, 85%, 66%)
-    );
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
-}
-
-  @keyframes moveGradient {
-    50% {
-      background-position: 100% 50%;
+@media only screen and (min-width: 768px){
+    .container {
+        flex-direction: row;
+        min-height: 88vh;
     }
-  }
+    
+    .column {
+        width: 50%;
+    }
 
-  .item-margin{
-      margin-left: 2rem;
-  }
+    .center {
+        width: 40%;
+        padding-top: 2em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}

@@ -1,0 +1,23 @@
+.container {
+    padding: 0 1em;
+}
+
+.buttons {
+    margin-bottom: 1rem;
+}
+
+table {
+    width: 100%;
+}
+td a {
+    margin: 0 2em;
+}
+
+
+@media only screen and (min-width: 1200px){
+
+    .container{
+        padding: 0 4em;
+    }
+    
+}

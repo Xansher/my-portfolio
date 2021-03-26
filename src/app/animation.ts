@@ -15,7 +15,7 @@ import {
   // Routable animations
 export const slideInAnimation =
 trigger('routeAnimations', [
-  transition('HomePage <=> AboutPage, * <=> HomePage', [
+  transition('HomePage <=> AboutPage', [
     style({ position: 'relative' }),
     query(':enter, :leave', [
       style({
@@ -35,6 +35,35 @@ trigger('routeAnimations', [
       ]),
       query(':enter', [
         animate('500ms 300ms ease-out', style({ top: '0%', opacity: '1' }))
+      ])
+    ]),
+    query(':enter', animateChild()),
+  ])
+]);
+
+
+export const opacity =
+trigger('routeAnimations', [
+  transition('HomePage <=> AboutPage', [
+    style({ position: 'relative' }),
+    query(':enter, :leave', [
+      style({
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+      })
+    ]),
+    query(':enter', [
+      style({  opacity: '0' })
+    ]),
+    query(':leave', animateChild()),
+    group([
+      query(':leave', [
+        animate('300ms ease-out', style({  opacity: '0' }))
+      ]),
+      query(':enter', [
+        animate('300ms 200ms ease-out', style({ opacity: '1' }))
       ])
     ]),
     query(':enter', animateChild()),

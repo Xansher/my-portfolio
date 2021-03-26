@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { skillDTO } from '../skills.models';
+import { ActivatedRoute, Data, Router } from '@angular/router';
+import { skillCreationDTO, skillDTO } from '../skills.models';
+import { SkillsService } from '../skills.service';
 
 @Component({
   selector: 'app-edit-skill',
@@ -9,16 +10,31 @@ import { skillDTO } from '../skills.models';
 })
 export class EditSkillComponent implements OnInit {
 
-  constructor(private activatedRoute:ActivatedRoute) { }
+  constructor(private activatedRoute:ActivatedRoute, private skillsService:SkillsService, private router:Router) { }
 
   
 
-  model:skillDTO= {id:1, name: 'Angular', icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Angular_full_color_logo.svg/250px-Angular_full_color_logo.svg.png', description: '# siema'}
+  model:skillDTO;
 
   ngOnInit(): void {
+    this.activatedRoute.data.subscribe((data: Data)=>{
+      this.model=data['skill'];
+    })
+    /*
     this.activatedRoute.params.subscribe(params =>{
       this.model.id= params.id;
-    })
+    })*/
+
+  }
+
+  saveChanges( skill:skillCreationDTO){  
+    console.log(skill);
+    this.skillsService.edit(this.model.id, skill).subscribe(()=> {
+      this.router.navigate(['/skills']);
+    });
+
+    
+    
   }
 
 }

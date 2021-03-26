@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { skillCreationDTO } from '../skills.models';
+import { SkillsService } from '../skills.service';
 
 @Component({
   selector: 'app-create-skill',
@@ -8,12 +10,14 @@ import { skillCreationDTO } from '../skills.models';
 })
 export class CreateSkillComponent implements OnInit {
 
-  constructor() { }
+  constructor(private skillsService:SkillsService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
   onSaveChanges(skillCreationDTO: skillCreationDTO){
-    console.log(skillCreationDTO);
+    this.skillsService.create(skillCreationDTO).subscribe(()=>{
+      this.router.navigate(['/skills']);
+    });
   }
 }

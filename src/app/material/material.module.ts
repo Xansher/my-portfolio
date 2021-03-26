@@ -6,6 +6,7 @@ import {MatIconModule} from '@angular/material/icon'
 import {MatInputModule} from '@angular/material/input'
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatTabsModule} from '@angular/material/tabs'
+import {MatTableModule} from '@angular/material/table'
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,8 @@ import {MatTabsModule} from '@angular/material/tabs'
     MatIconModule,
     MatInputModule,
     MatFormFieldModule,
-    MatTabsModule
+    MatTabsModule,
+    MatTableModule
   ],
   imports: [
     CommonModule,

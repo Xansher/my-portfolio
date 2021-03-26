@@ -1,15 +1,26 @@
-
 <div class="container">
-    <div class="item2 gradient-border">
-        <img [src]="'https://fwcdn.pl/ppo/59/53/5953/449716.2.jpg'" width="100%" height="100%" />
-    </div>
-    <div class="item">
-        <div class="item-margin">
-            <h1>About me</h1>
-            Siema
+    <div class="column center">
+        <div>
+            <div class="label">
+                {{model.label}}
+            </div>
+            <div class="label-2">
+                {{model.text}}
+            </div>
+            <div class="label-3">
+                {{model.underText}}
+            </div>
+            <div>
+                <img [src]="model.photo" />
+            </div>
         </div>
         
     </div>
-   
-
+    <div class="column">
+        <div class="img-container">
+            <img [src]="'assets/me4.png'"/>
+        </div>
+        
+    </div>
 </div>
+<app-footer></app-footer>

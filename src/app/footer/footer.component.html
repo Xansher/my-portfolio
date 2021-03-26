@@ -1,1 +1,84 @@
-<p>footer works!</p>
+<div class="container">
+    <div class="row">
+        <div class="column logo">
+            <app-logo></app-logo>
+        </div>
+        <div class="column">
+            <div>
+                <div class="column-label">
+                    Explore
+                </div>
+                <ul>
+                    <li>
+                        <a routerLink="aboutme">About me</a>
+                    </li>
+                    <li>
+                        <a routerLink="skills">Skills</a>
+                    </li>
+                    <li>
+                        <a routerLink="experience">Experience</a>
+                    </li>
+                    <li>
+                        <a routerLink="contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        <div class="column">
+            <div>
+                <div class="column-label">
+                    Social
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://www.linkedin.com/in/grzegorz-aszlar/">
+                            <div class=social>
+                                <img [src]="'assets/Linkedin.svg'" />
+                                <span>Linkedin</span> 
+                            </div>  
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/Xansher">
+                            <div class=social>
+                                <img [src]="'assets/Github.svg'" />
+                                <span>GitHub</span> 
+                            </div>  
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.instagram.com/grzes_czesc/">
+                            <div class=social>
+                                <img [src]="'assets/Instagram.svg'" />
+                                <span>Instagram</span> 
+                            </div>  
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="column contact">
+             <div class="column-label">
+                Contact
+            </div>
+            <div>
+                <div class="contact-email">
+                    Email: grzesiek.aszlar@gmail.com
+                </div>
+                <div class="contact-text">
+                    Fell free to contact me by email or page. 
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <hr>
+    <div class="row right">
+        <div>
+            Copyright ©2021 Grzegorz Aszlar
+        </div>
+    </div> 
+</div>

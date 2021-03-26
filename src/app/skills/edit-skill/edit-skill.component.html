@@ -1,2 +1,5 @@
-<h2>Edit skill</h2>
-<app-form-skill [label]="'Description'" [model]="model"></app-form-skill>
+
+<div class="gpad">
+    <h2>Edit skill</h2>
+    <app-form-skill [label]="'Description'" (onSaveChanges)="saveChanges($event)" [model]="model"></app-form-skill>
+</div>

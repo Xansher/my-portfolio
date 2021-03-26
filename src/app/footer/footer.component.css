@@ -1,0 +1,123 @@
+.container {
+    font-size: 20px;
+    padding: 0 1em;
+    background: #212121;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    min-width: 50%;
+    padding: 1em;
+    align-items: center;
+}
+
+.logo {
+    display: none;
+}
+
+.column-label{
+    font-weight: bold;
+    font-size: 22px;
+    padding-bottom: 1em;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    line-height: 2em;
+}
+
+ul li{
+    list-style-type: none;
+
+}
+
+li a { 
+    text-decoration: none;
+    color: inherit;
+
+}
+li a:hover {
+    color:#a5a5a5;
+    
+}
+
+.contact {
+    min-width: 100%;
+    align-items: center;
+}
+.contact-email {
+    font-size: 16px;
+}
+
+.contact-text {
+    font-size: 12px;
+}
+
+hr {
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    border: #FFF solid 1px;
+}
+
+.right {
+    font-size: 12px;
+    justify-content: flex-end;
+    padding-bottom: 1em;
+}
+
+.social {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: 14px;
+    padding-bottom: 0.5em;
+}
+.social span {
+    padding-left: 0.1em;
+}
+
+
+@media only screen and (min-width: 940px) {
+
+    .column{
+        min-width: 20%;
+        
+    }
+
+    .logo{
+        display: flex;
+        justify-content: center;
+    }
+    .logo app-logo {
+        max-width: 180px;
+    }
+
+    .contact {
+        align-items: flex-start;
+    }
+}
+
+@media only screen and (min-width: 1300px) {
+    .column{
+        min-width: 25%;
+        align-items:flex-start;
+    }
+    .logo app-logo {
+        max-width: 100%;
+    }
+
+}

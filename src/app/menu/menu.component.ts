@@ -9,7 +9,13 @@ export class MenuComponent implements OnInit {
 
   constructor() { }
 
+  menuVisible= false;
+
   ngOnInit(): void {
+  }
+
+  toggleMenu(){
+    this.menuVisible =! this.menuVisible;
   }
 
 }

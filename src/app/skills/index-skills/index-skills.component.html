@@ -1,1 +1,30 @@
-<a mat-flat-button routerLink="/skills/create" color="primary">Crate skill</a>
+<div class="container">
+    <div class="buttons">
+        <a mat-flat-button routerLink="/skills/create" color="primary">Crate skill</a>
+    </div>
+    
+
+    <app-generic-list [list]="skills">
+        <ng-container content>
+            <table mat-table [dataSource]="skills" class="mat-elevation-z8 table-index">
+                <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Name</th>
+                    <td mat-cell *matCellDef="let skill">{{skill.name}}</td>
+                </ng-container>
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef>Actions</th>
+                    <td mat-cell *matCellDef="let skill"> 
+                        <a mat-flat-button color="primary"  routerLink="edit/{{skill.id}}">Edit</a>
+                        <button mat-flat-button (confirm)="delete(skill.id)" color="warn" [swal]="{
+                            title:'Confirmation',text:'Are you sure that you want to delete the record?', showCancelButton: true
+                        }">Remove</button>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+                <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+            </table>
+        </ng-container>
+    </app-generic-list>
+    
+
+</div>
