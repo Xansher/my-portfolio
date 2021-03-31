@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="column center">
+    <div class="column center column-container">
         <div>
             <div class="label">
                 {{model.label}}
@@ -11,14 +11,14 @@
                 {{model.underText}}
             </div>
             <div>
-                <img [src]="model.photo" />
+                <img [src]="model.image" />
             </div>
         </div>
         
     </div>
     <div class="column">
         <div class="img-container">
-            <img [src]="'assets/me4.png'"/>
+            <img [src]="model.photo"/>
         </div>
         
     </div>

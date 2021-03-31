@@ -1,19 +1,56 @@
-<div style="padding: 0 2rem;">
-    <div style=" width: 100%; height: 100%;">
-        <div class="container">
-            <div class="item">
-                <div class="item-margin">
-                    <h1>About me</h1>
-                    Full Stack Developer
+<div class="container">
+    <div class="row">
+        <div class="column-1">
+            <div class="label-container">
+                <div class="label">
+                    {{labels[0]}}  
+                </div>      
+            </div>
+        </div>
+        <div class="column-2">
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </div>
+        <div class="column-3">
+            <img [src]="'assets/GrzegorzAszlar1.jpg'"/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="column-1">
+            <div class="label-container">
+                <div class="label">
+                    {{labels[1]}}  
+                </div>      
+            </div>
+        </div>
+        <div class="column-2">
+            <!-- <div class ="skills-container">
+                <div *ngFor="let skill of skills" class="skill-container">
+                    <img [src]="skill.icon"/>
+                    <div> {{skill.name}} </div>
                 </div>
+            </div> -->
+
+            <app-slider *ngIf="skills && skills.length>0" [list]="skills">
                 
+            </app-slider>
+        </div>
+        <div class="column-3">
+            
+        </div>
+    </div>
+    <div class="row">
+        <div class="column-1">
+            <div class="label-container">
+                <div class="label">
+                    {{labels[2]}}  
+                </div>      
             </div>
-            <div class="item2">
-                <img  [src]="'assets/me4.png'"/>
-            </div>
-           
-           
-        
+        </div>
+        <div class="column-2">
+            Lorem ipsum
+        </div>
+        <div class="column-3">
+            
         </div>
     </div>
 </div>

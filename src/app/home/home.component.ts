@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Data } from '@angular/router';
 import { HomeDTO } from './home.model';
 
 @Component({
@@ -8,13 +9,15 @@ import { HomeDTO } from './home.model';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute:ActivatedRoute) { }
 
-  model:HomeDTO={label:'Hello', text:'I am Grzegorz Aszlar', underText:'Fullstack developer', photo:'assets/Icon awesome-laptop-code.svg'};
+  model:HomeDTO;
 
   
   ngOnInit(): void {
-    
+    this.activatedRoute.data.subscribe(data => {
+      this.model=data['home'];
+    })
   }
 
   

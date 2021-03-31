@@ -35,6 +35,9 @@ mat-toolbar {
 .nav-container a {
     width: 100%;
 }
+.nav-container button {
+    width: 100%;
+}
 .menu-button {
     cursor: pointer;
 }

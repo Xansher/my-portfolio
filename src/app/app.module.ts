@@ -20,6 +20,9 @@ import { FooterComponent } from './footer/footer.component';
 import { LogoComponent } from './utilities/logo/logo.component';
 import { GenericListComponent } from './utilities/generic-list/generic-list.component'
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { HomeSettingsComponent } from './settings/home-settings/home-settings.component';
+import { IndexSettingsComponent } from './settings/index-settings/index-settings.component';
+import { SliderComponent } from './utilities/slider/slider.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,10 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
     InputMarkdownComponent,
     FooterComponent,
     LogoComponent,
-    GenericListComponent
+    GenericListComponent,
+    HomeSettingsComponent,
+    IndexSettingsComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,

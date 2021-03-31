@@ -1,5 +1,5 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, HostBinding } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { slideInAnimation, opacity } from './animation';
 
@@ -12,11 +12,19 @@ import { slideInAnimation, opacity } from './animation';
     opacity
   ]
 })
-export class AppComponent {
-  
-  footer=true;
-  url='';
+export class AppComponent implements OnInit{
 
+  
+
+  ngOnInit(): void {
+    const language=localStorage.getItem('lang');
+    if(language==null){
+      localStorage.setItem('lang','english');
+    }
+    
+  }
+  
+  
   prepareRoute(outlet: RouterOutlet) {
     return outlet && outlet.activatedRouteData && outlet.activatedRouteData.animation;
   }

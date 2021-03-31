@@ -12,10 +12,19 @@
             <mat-icon>close</mat-icon>
         </div>
         <div>
-            <a mat-button routerLink="">Home</a>
+            <a mat-button routerLink="">{{model.home}}</a>
         </div>
         <div>
-            <a mat-button routerLink="aboutme">About me</a>
+            <a mat-button routerLink="aboutme">{{model.aboutme}}</a>
+        </div>
+        <div>
+            <a mat-button routerLink="contact">{{model.contact}}</a>
+        </div>
+        <div>
+            <a mat-button routerLink="portfolio">Portfolio</a>
+        </div>
+        <div>
+            <a mat-button routerLink="settings">{{model.settings}}</a>
         </div>
         <div>
             <a mat-button routerLink="skills">Skills</a>
@@ -23,20 +32,22 @@
         <div>
             <a mat-button routerLink="experience">Experience</a>
         </div>
-        <div>
-            <a mat-button routerLink="contact">Contact</a>
-        </div>
+        
 
         <div class="space">
 
         </div>
     
-        
         <div>
-            <a mat-button routerLink="login" class="btn">Login</a>
+            <button mat-button type="button" (click)="changeLanguage()">
+                ENG/PL
+            </button>
+        </div>
+        <div>
+            <a mat-button routerLink="login" class="btn">{{model.login}}</a>
         </div>
         <div class="mar-left">
-            <a mat-button routerLink="register" class="btn">Register</a>
+            <a mat-button routerLink="register" class="btn">{{model.register}}</a>
         </div>
     </div>
         

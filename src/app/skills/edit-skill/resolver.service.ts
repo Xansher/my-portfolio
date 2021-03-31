@@ -7,12 +7,13 @@ import { SkillsService } from '../skills.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ResolverService implements Resolve<Observable<skillDTO>> {
+export class ResolverService implements Resolve<skillDTO> {
 
   constructor(private skillsService:SkillsService) { }
-
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<skillDTO> | Observable<Observable<skillDTO>> | Promise<Observable<skillDTO>> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): skillDTO | Observable<skillDTO> | Promise<skillDTO> {
     return this.skillsService.getById(route.params['id']);
   }
+
+  
   
 }

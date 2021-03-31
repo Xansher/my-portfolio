@@ -1,6 +1,8 @@
 import { animate, query, state, style, transition, trigger } from '@angular/animations';
 
 import { AfterViewChecked, Component, HostBinding, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { skillDTO } from 'src/app/skills/skills.models';
+import { SkillsService } from 'src/app/skills/skills.service';
 
 
 @Component({
@@ -13,17 +15,29 @@ import { AfterViewChecked, Component, HostBinding, OnChanges, OnDestroy, OnInit 
 })
 export class IndexAboutmeComponent implements OnInit, OnDestroy {
 
-  // @HostBinding('@modalSlideInOut') state:string;
+  
 
-  constructor() { }
+  constructor(private skillService:SkillsService) { }
 
+  labels:string[];
 
+  skills: skillDTO[];
 
 
 
   ngOnInit(): void {
+    if(localStorage.getItem('lang')=="english"){
+      this.labels=['About me', 'Skills', 'Experience'];
+    }
+    if(localStorage.getItem('lang')=="polish"){
+      this.labels=['O mnie', 'Umiejętności', 'Doświadczenie'];
+    }
 
-    //this.state='void';
+
+    this.skillService.getAll().subscribe(skills => {
+      this.skills=skills;
+    });
+
   }
 
   ngOnDestroy(): void {

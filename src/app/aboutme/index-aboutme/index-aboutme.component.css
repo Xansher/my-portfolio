@@ -1,128 +1,58 @@
-h1 {
-    color: #66FCF1;
-    margin-top: 0;
-    align-content: center;
-    font-size: 70px;
-    
+.container {
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
 }
 
-.container{
-    width:100%;  
-    display: flex; 
-    flex-direction: row; 
-    
+.label-container {
+  padding-bottom: 1rem;
+}
+
+.label {
+  font-size: 45px;
+  font-weight: bold;
+  border-bottom: 3px solid white;
+  width: fit-content;
 }
 
 
-
-.image {
-  position: absolute;
-  left: 0px;
-  top: 0px;
-  z-index: -1;
-}
-@keyframes example {
-    0%   {border:1px solid pink}
-    25%  {border:1px solid yellow}
-    50%  {border:1px solid blue}
-    75%  {border:1px solid green}
-    100% {border:1px solid red}
-  }
-
-
-  .item {
-      width: 50%;
-  }
-  .item2{
-      max-width: 50%; 
-      height: auto;
-  }
-.gradient-border{
-    position: relative;
-    --border-width: 3px;
-   /* animation-name: example;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;*/
-    background: #303030;
-    border-radius: var(--border-width);
-}
-.gradient-border::after{
-    position: absolute;
-    content: "";
-    top: calc(-1 * var(--border-width));
-    left: calc(-1 * var(--border-width));
-    z-index: -1;
-    width: calc(100% + var(--border-width) * 2);
-    height: calc(100% + var(--border-width) * 2);
-    background: linear-gradient(
-      60deg,
-      hsl(179, 85%, 66%),
-      hsl(214, 96%, 38%),
-      hsl(194, 90%, 53%),
-      hsl(214, 96%, 38%),
-      hsl(179, 85%, 66%),
-      hsl(214, 96%, 38%),
-      hsl(192, 100%, 64%),
-      hsl(179, 85%, 66%)
-    );
-    background-size: 300% 300%;
-    background-position: 0 50%;
-    border-radius: calc(2 * var(--border-width));
-    animation: moveGradient 4s alternate infinite;
+.column-3 img{
+  padding: 1em;
+  max-width: 100%;
+  height: auto;
 }
 
-  @keyframes moveGradient {
-    50% {
-      background-position: 100% 50%;
-    }
-  }
+.skill-container img {
+  width: 70px;
+  height: auto;
+}
 
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+.skills-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  position: relative;
+  padding: 1em;
+  
+}
 
- 
-
-  @media only screen and (max-width: 900px){
-
-    img {
-      width: 60%;
-      height: auto;
-    }
-    .container{
-      height: 100%;
-      
-    }
-    
-    
-    .item {
-      width: 70%;
-      position: fixed;
-    }
-
-    .item2 {
-      display: flex;
-      justify-content: flex-end;
-      width: 100%;
-      max-width: 100%;
-      height: auto;
-      z-index: -1;
-    }
-
-  }
-
-  @media only screen and (max-width:567px){
-
-    img {
-      width: 70%;
-    }
-    .container {
-      flex-direction: column-reverse;
-    }
-    .item {
-      top: -100px;
-      position: relative;
-    }
-
-  }
+.skill-container {
+  background: linear-gradient(to bottom, #59476f 30%, #7b88d1 100%);
+  z-index: 300;
+  box-shadow: 0px 20px 50px rgb(75, 8, 199);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5em;
+  align-items: center;
+  min-width: 200px;
+  height: 300px;
+  margin: 2em;
+  transition: .5s all ease;
+  transform: scale(1.0);
+  
+}
+.skills-container :hover {
+  cursor: pointer;
+  transition: .5s all ease;
+  transform: scale(1.1);
+}
