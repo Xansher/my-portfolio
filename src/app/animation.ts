@@ -1,6 +1,6 @@
 import {
     animation, trigger, animateChild, group,
-    transition, animate, style, query
+    transition, animate, style, query, state
   } from '@angular/animations';
 
   export const transAnimation = animation([
@@ -69,3 +69,15 @@ trigger('routeAnimations', [
     query(':enter', animateChild()),
   ])
 ]);
+
+export const slide =
+trigger('slide', [
+  state('normal', style({transform: 'translateX(0)'})),
+  state('left', style({transform: 'translateX(-100%)'})),
+  state('right',style({transform: 'translateX(100%)'})),
+ transition(':enter', [
+   style({transform: 'translateX(100%)'}), animate('500ms',style({transform: 'translateX(-200px)'}))
+ ]),
+ transition('normal=>left', [ animate('200ms')
+]),
+])

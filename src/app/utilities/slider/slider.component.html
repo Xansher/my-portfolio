@@ -3,18 +3,17 @@
         <div #main  class="main"
         [ngStyle]="{'height': cardHeight+'px'}" 
         >
-        <div *ngIf="items && items.length>0">
-            <div *ngFor="let item of items; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px', 'width': cardWidth+'px'}" class="skill-container">
-                <div class="skill">
-                    <img [src]="item.icon"/>
-                    <div> {{item.name}} </div>
+            <div  *ngIf="items && items.length>0" class="inner">
+                <div *ngFor="let item of items; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px', 'width': cardWidth+'px'}" class="skill-container">
+                    <div class="skill">
+                        <img [src]="item.icon"/>
+                        <div> {{item.name}} </div>
+                    </div>
+                    
                 </div>
-                   
-            </div>
+            </div>     
         </div>
-            
-        </div>
-        <a class="prev">&lsaquo;</a>
-        <a class="next">&rsaquo;</a>
+        <a class="prev" (click)="prev()">&lsaquo;</a>
+        <a class="next" (click)="next()">&rsaquo;</a>
     </div>
 </div>
