@@ -56,6 +56,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
     this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
       this.itemsPerPage= Math.floor(this.main.nativeElement.offsetWidth/200);
       this.cardWidth = Math.floor((this.main.nativeElement.offsetWidth/this.itemsPerPage)-10.1);
+      this.translate=0;
       //console.log(` items: ${this.itemsPerPage} tOTAL: ${this.main.nativeElement.offsetWidth} CARD:${this.cardWidth}`);
     });
   }
@@ -70,6 +71,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
     if(this.sliderWidth){
       this.itemsPerPage= Math.floor(this.main.nativeElement.offsetWidth/200);
       this.cardWidth= Math.floor((this.main.nativeElement.offsetWidth/this.itemsPerPage)-10.1);
+    
     }  
     
     this.cdRef.detectChanges();
