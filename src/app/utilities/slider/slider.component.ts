@@ -27,8 +27,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
   sliderWidth:number =0;
   cardHeight:number=300;
   cardWidth:number=0;
-  items:any[];
-  nextItems:any[];
+  translate:number=0;
   itemsPerPage=0;
   currentIndex:number=0;
   @Input()
@@ -42,21 +41,13 @@ export class SliderComponent implements OnInit, AfterViewInit{
   resizeObservable$: Observable<Event>
   resizeSubscription$: Subscription
   ngOnInit(): void {
-    /*this.items=this.list;
-    if(this.main){
-      console.log(this.main.nativeElement.offsetWidth)
-    }*/
-    
-    
-    console.log('test');
-    console.log(this.list);
+  
     this.loadObservable$ = fromEvent(window, 'load')
     this.loadSubscription$ = this.loadObservable$.subscribe( evt => {
       if (this.main
         && this.main.nativeElement
         && this.main.nativeElement.offsetWidth){
           this.itemsPerPage= Math.floor(this.main.nativeElement.offsetWidth/200);
-          this.items= this.list.slice(0, this.itemsPerPage);
           this.cardWidth= Math.floor((this.main.nativeElement.offsetWidth/this.itemsPerPage)-10.1);
         }
       
@@ -64,7 +55,6 @@ export class SliderComponent implements OnInit, AfterViewInit{
     this.resizeObservable$ = fromEvent(window, 'resize');
     this.resizeSubscription$ = this.resizeObservable$.subscribe( evt => {
       this.itemsPerPage= Math.floor(this.main.nativeElement.offsetWidth/200);
-      this.items= this.list.slice(0, this.itemsPerPage);
       this.cardWidth = Math.floor((this.main.nativeElement.offsetWidth/this.itemsPerPage)-10.1);
       //console.log(` items: ${this.itemsPerPage} tOTAL: ${this.main.nativeElement.offsetWidth} CARD:${this.cardWidth}`);
     });
@@ -80,9 +70,6 @@ export class SliderComponent implements OnInit, AfterViewInit{
     if(this.sliderWidth){
       this.itemsPerPage= Math.floor(this.main.nativeElement.offsetWidth/200);
       this.cardWidth= Math.floor((this.main.nativeElement.offsetWidth/this.itemsPerPage)-10.1);
-      this.items= this.list.slice(0, this.itemsPerPage);
-      //this.nextItems=this.list.slice(3, 5);
-      console.log(this.cardWidth);
     }  
     
     this.cdRef.detectChanges();
@@ -90,40 +77,17 @@ export class SliderComponent implements OnInit, AfterViewInit{
   
 
   prev() {
-    this.currentIndex-=1;
-    this.items=this.list.slice(this.currentIndex*this.itemsPerPage, (this.currentIndex+1)*this.itemsPerPage);
+    var size= this.list.length;
+    var step= this.cardWidth+10;
+    if(this.translate<0){
+      this.translate+=step;
+    }
   }
   next() {
-    console.log(this.list.length);
-    var itemsToFull=(this.currentIndex+2)*this.itemsPerPage;
-    var length=this.list.length;
-    if(itemsToFull>length){
-      var diff=itemsToFull-length;
-      this.currentIndex+=1;
-      console.log(this.items);
-      this.items.splice(0,1);
-      console.log(this.items);
-      console.log(this.list);
-      
-      console.log(this.list.slice(3,4));
-      this.list.slice(3,4).forEach(x=> {
-        this.items.push(x);
-      });
-    //  this.items=this.list.slice(this.currentIndex*this.itemsPerPage-diff, (this.currentIndex+1)*this.itemsPerPage-diff);
-      
-    }else{
-      this.currentIndex+=1;
-      
-      //this.items=this.list.slice(this.currentIndex*this.itemsPerPage, (this.currentIndex+1)*this.itemsPerPage);
-      console.log('przed'+this.items);
-      //this.items.push(this.list.slice(2,4));
-      console.log(this.items);
-      this.items.splice(0,1);
-      console.log(this.items);
-      this.list.slice(3,4).forEach(x=> {
-        this.items.push(x);
-      });
-      
+    var size= this.list.length;
+    var step= this.cardWidth+10;
+    if(this.translate>(-1*(size-this.itemsPerPage)*step)){
+      this.translate-=step;
     }
     
   }

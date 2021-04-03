@@ -3,8 +3,8 @@
         <div #main  class="main"
         [ngStyle]="{'height': cardHeight+'px'}" 
         >
-            <div  *ngIf="items && items.length>0" class="inner">
-                <div *ngFor="let item of items; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px', 'width': cardWidth+'px'}" class="skill-container">
+            <div class="inner">
+                <div *ngFor="let item of list; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px','transform': 'translateX('+translate+'px)' , 'min-width': cardWidth+'px'}" class="skill-container">
                     <div class="skill">
                         <img [src]="item.icon"/>
                         <div> {{item.name}} </div>
