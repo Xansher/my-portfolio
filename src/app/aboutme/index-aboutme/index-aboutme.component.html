@@ -30,7 +30,7 @@
                 </div>
             </div> -->
 
-            <app-slider [list]="skills">
+            <app-slider *ngIf="skills && skills.length>0" [list]="skills">
                 
             </app-slider>
         </div>
