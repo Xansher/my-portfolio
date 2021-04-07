@@ -1,9 +1,9 @@
-<div *ngIf="list && list.length>0" class="ng-slider">
+<div  class="ng-slider">
     <div class="ng-slider-container">
         <div #main  class="main"
         [ngStyle]="{'height': cardHeight+'px'}" 
         >
-            <div class="inner">
+            <div *ngIf="list && list.length>0" class="inner">
                 <div *ngFor="let item of list; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px','transform': 'translateX('+translate+'px)' , 'min-width': cardWidth+'px'}" class="skill-container">
                     <div class="skill">
                         <img [src]="item.icon"/>
@@ -13,7 +13,7 @@
                 </div>
             </div>     
         </div>
-        <a class="prev" (click)="prev()">&lsaquo;</a>
-        <a class="next" (click)="next()">&rsaquo;</a>
+        <a class="prev" *ngIf="leftArrowVisible" (click)="prev()">&lsaquo;</a>
+        <a class="next" *ngIf="rightArrowVisible" (click)="next()">&rsaquo;</a>
     </div>
 </div>
