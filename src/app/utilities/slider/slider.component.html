@@ -1,5 +1,9 @@
 <div  class="ng-slider">
     <div class="ng-slider-container">
+        <div class="arrow">
+            <a class="prev" *ngIf="leftArrowVisible"  (click)="prev()">&lsaquo;</a>
+        </div>
+        
         <div #main  class="main"
         [ngStyle]="{'height': cardHeight+100+'px'}" 
         >
@@ -16,7 +20,9 @@
                 </div>
             </div>     
         </div>
-        <a class="prev" *ngIf="leftArrowVisible" (click)="prev()">&lsaquo;</a>
-        <a class="next" *ngIf="rightArrowVisible" (click)="next()">&rsaquo;</a>
+        <div class="arrow">
+            <a class="next" *ngIf="rightArrowVisible" (click)="next()">&rsaquo;</a>
+        </div>
+        
     </div>
 </div>
