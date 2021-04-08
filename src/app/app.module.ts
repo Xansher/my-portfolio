@@ -23,6 +23,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { HomeSettingsComponent } from './settings/home-settings/home-settings.component';
 import { IndexSettingsComponent } from './settings/index-settings/index-settings.component';
 import { SliderComponent } from './utilities/slider/slider.component';
+import { ExperienceComponent } from './aboutme/experience/experience.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { SliderComponent } from './utilities/slider/slider.component';
     GenericListComponent,
     HomeSettingsComponent,
     IndexSettingsComponent,
-    SliderComponent
+    SliderComponent,
+    ExperienceComponent
   ],
   imports: [
     BrowserModule,
