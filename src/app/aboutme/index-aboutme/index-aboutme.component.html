@@ -23,13 +23,6 @@
             </div>
         </div>
         <div class="column-2">
-            <!-- <div class ="skills-container">
-                <div *ngFor="let skill of skills" class="skill-container">
-                    <img [src]="skill.icon"/>
-                    <div> {{skill.name}} </div>
-                </div>
-            </div> -->
-
             <app-slider *ngIf="skills && skills.length>0" [list]="skills">
                 
             </app-slider>
