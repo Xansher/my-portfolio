@@ -4,7 +4,7 @@
         [ngStyle]="{'height': cardHeight+100+'px'}" 
         >
             <div *ngIf="list && list.length>0" #inner class="inner">
-                <div *ngFor="let item of list; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px', 'min-width': cardWidth+'px'}" class="skill-container">
+                <div *ngFor="let item of list; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px', 'min-width': cardWidth+'px', 'max-width': cardWidth+'px'}" class="skill-container">
                     <div class="skill" [class.skill--hover]="item.hover" (mouseenter)="item.hover=true" (mouseleave)="item.hover=false">
                         <img [src]="item.icon"/>
                         <div> {{item.name}} </div>
