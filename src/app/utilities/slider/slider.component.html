@@ -1,13 +1,16 @@
 <div  class="ng-slider">
     <div class="ng-slider-container">
         <div #main  class="main"
-        [ngStyle]="{'height': cardHeight+'px'}" 
+        [ngStyle]="{'height': cardHeight+100+'px'}" 
         >
-            <div *ngIf="list && list.length>0" class="inner">
-                <div *ngFor="let item of list; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px','transform': 'translateX('+translate+'px)' , 'min-width': cardWidth+'px'}" class="skill-container">
-                    <div class="skill">
+            <div *ngIf="list && list.length>0" #inner class="inner">
+                <div *ngFor="let item of list; let index;" [ngStyle]="{'margin' : '0 5px', 'height': cardHeight+'px', 'min-width': cardWidth+'px'}" class="skill-container">
+                    <div class="skill" [class.skill--hover]="item.hover" (mouseenter)="item.hover=true" (mouseleave)="item.hover=false">
                         <img [src]="item.icon"/>
                         <div> {{item.name}} </div>
+                        <div [class.description--hover]="item.hover" class="description">
+                            {{item.description}}
+                        </div>
                     </div>
                     
                 </div>

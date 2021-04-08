@@ -1,22 +1,24 @@
-import {  AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import {   AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
 import { skillDTO } from 'src/app/skills/skills.models';
 import { fromEvent, Observable, Subscription } from "rxjs";
 import { ChangeDetectorRef } from '@angular/core';
-import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { slide } from 'src/app/animation';
+
+
 
 
 @Component({
   selector: 'app-slider',
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.css'],
-  animations: [slide]
+  animations: []
 })
 export class SliderComponent implements OnInit, AfterViewInit{
 
   @ViewChild('main') main;
+  @ViewChild('inner') inner:ElementRef;
 
   constructor(private cdRef:ChangeDetectorRef) { }
+
  
   
   state='normal';
@@ -25,7 +27,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
   list:any[];
   @Input()
   sliderWidth:number =0;
-  cardHeight:number=300;
+  cardHeight:number=350;
   cardWidth:number=0;
   translate:number=0;
   itemsPerPage=0;
@@ -46,7 +48,8 @@ export class SliderComponent implements OnInit, AfterViewInit{
   resizeSubscription$: Subscription
 
   ngOnInit(): void {
-
+    
+    
     this.setSize();
 
     this.loadObservable$ = fromEvent(window, 'load')
@@ -68,6 +71,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
    this.setSize();
     
     this.cdRef.detectChanges();
+    
   }
 
   setSize(){
@@ -80,8 +84,14 @@ export class SliderComponent implements OnInit, AfterViewInit{
       this.itemsPerPage= Math.floor(this.main.nativeElement.offsetWidth/200);
       this.cardWidth= Math.floor((this.main.nativeElement.offsetWidth/this.itemsPerPage)-10.1);
       this.translate=0;
-      this.checkRightArrow();
-      this.checkLeftArrow();
+      this.inner.nativeElement.scrollLeft=0;
+      //this.checkRightArrow();
+      if(this.inner.nativeElement.offsetWidth<this.inner.nativeElement.scrollWidth){
+        this.rightArrowVisible=true;
+      }else{
+        this.rightArrowVisible=false;
+      }
+      this.leftArrowVisible=false;
      
     }
     
@@ -90,59 +100,53 @@ export class SliderComponent implements OnInit, AfterViewInit{
   
 
   prev() {
-    var size= this.list.length;
-    var step= this.cardWidth+10;
-    if(this.translate<0){
-      this.translate+=step;
+    var step= this.itemsPerPage* (this.cardWidth+10);
+    this.inner.nativeElement.scrollLeft -= step;
+    var next=this.inner.nativeElement.scrollLeft - step;
+    if(next<=0){
+      this.leftArrowVisible=false;
     }
-    this.checkLeftArrow();
-    this.checkRightArrow();
+    this.rightArrowVisible=true;
   }
   next() {
-    var size= this.list.length;
-    var step= this.cardWidth+10;
-    if(this.translate>(-1*(size-this.itemsPerPage)*step)){
-      this.translate-=step;
+    var step= this.itemsPerPage* (this.cardWidth+10);
+    this.inner.nativeElement.scrollLeft += step;
+    var next=this.inner.nativeElement.scrollLeft + step;
+    var total= this.inner.nativeElement.scrollWidth;
+    this.leftArrowVisible=true;
+    if(total-step<next+2){
+      this.rightArrowVisible=false;
     }
-    this.checkRightArrow();
-    this.checkLeftArrow();
+    /*this.checkRightArrow();
+    this.checkLeftArrow();*/
+  
   }
   
   
   checkRightArrow(){
-    if(this.list && this.list.length>0){
-      var size= this.list.length;
-      var step= this.cardWidth+10;
-      if(this.translate>(-1*(size-this.itemsPerPage)*step)){
-        
-        this.rightArrowVisible=true;
-        return;
-      }
-    }
+    console.log(this.inner.nativeElement.scrollLeft);
+    console.log(this.inner.nativeElement.scrollWidth);
     
+    var step= this.itemsPerPage* (this.cardWidth+10);
+    var next=this.inner.nativeElement.scrollLeft + step;
+    var total= this.inner.nativeElement.scrollWidth;
+    if(total-step>next){
+      this.rightArrowVisible=true;
+      return;
+    } 
 
     this.rightArrowVisible=false;
   }
 
   checkLeftArrow(){
-    if(this.translate<0){
+    if(this.inner.nativeElement.scrollLeft>0){
       this.leftArrowVisible=true;
       return;
     }
     this.leftArrowVisible=false;
   }
 
-  getLastIndex(){
-    var size=this.list.length;
-    if(size<=this.itemsPerPage){
-      return 0;
-    }
-    if(size%this.itemsPerPage == 0){
-      return (size/this.itemsPerPage)-1;
-    }
 
-    return Math.floor(size/this.itemsPerPage);
-  }
 
 
 }
