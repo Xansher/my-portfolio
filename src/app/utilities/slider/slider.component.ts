@@ -82,7 +82,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
   }
     if(this.sliderWidth){
       this.itemsPerPage= Math.floor(this.main.nativeElement.offsetWidth/200);
-      this.cardWidth= Math.floor((this.main.nativeElement.offsetWidth/this.itemsPerPage)-10.1);
+      this.cardWidth= Math.floor((this.main.nativeElement.offsetWidth/this.itemsPerPage)-14);
       this.translate=0;
       this.inner.nativeElement.scrollLeft=0;
       //this.checkRightArrow();
@@ -100,7 +100,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
   
 
   prev() {
-    var step= this.itemsPerPage* (this.cardWidth+10);
+    var step= this.itemsPerPage* (this.cardWidth+14);
     this.inner.nativeElement.scrollLeft -= step;
     var next=this.inner.nativeElement.scrollLeft - step;
     if(next<=0){
@@ -109,7 +109,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
     this.rightArrowVisible=true;
   }
   next() {
-    var step= this.itemsPerPage* (this.cardWidth+10);
+    var step= this.itemsPerPage* (this.cardWidth+14);
     this.inner.nativeElement.scrollLeft += step;
     var next=this.inner.nativeElement.scrollLeft + step;
     var total= this.inner.nativeElement.scrollWidth;

@@ -44,6 +44,7 @@
     white-space: nowrap;
     position:relative;
     
+    
   }
   .skill {
     cursor: pointer;
@@ -57,13 +58,16 @@
     border-radius: 0.5rem;
     left: 0;
     transition: all 0.4s ease-out;
+    border: 1px solid #585858;
+    box-shadow: -3px 5px 3px 1px rgb(117, 117, 117);
   }
 
   .skill--hover {
       top:0;
       left:0%;
       background: linear-gradient(to bottom, #585858 30%, #848485 100%);
-      transform: translateY(20px);
+      transform: translateY(15px);
+      box-shadow: -3px 5px 3px 1px rgb(77, 76, 76);
       z-index: 99;
   }
   .skill .description {
