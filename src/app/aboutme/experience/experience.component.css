@@ -1,0 +1,29 @@
+.experience {
+    position: relative;
+    background: linear-gradient(to bottom, #626566 100%, #9e9ea1 60%);
+    padding: 1rem;
+    border: #565757 solid 1px;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    box-shadow: -4px 5px 3px 1px rgb(77, 76, 76);
+}
+
+.date-container {
+    display: flex;
+    flex-direction: row;
+    font-size: 20px;
+}
+.date-separator {
+    padding: 0 1rem;
+}
+.company {
+    font-size: 18px;
+}
+.position {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.description {
+    font-size: 16px
+}

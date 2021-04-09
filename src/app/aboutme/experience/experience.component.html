@@ -1,1 +1,17 @@
-<p>experience works!</p>
+
+    <div class="experience-container">
+        <div *ngFor="let model of list" class="experience">
+            <div class="date-container">
+                <div >{{model.startDate}}</div>
+                <div class="date-separator">-</div>
+                <div>{{model.endDate}}</div>
+            </div>
+            <div class="position">
+                {{model.position}}
+            </div>
+            <div class="company">{{model.company}}</div>
+            <div class="description">
+                <markdown [data]="model.description"></markdown>
+            </div>
+        </div>  
+    </div>
