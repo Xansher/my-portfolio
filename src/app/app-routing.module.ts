@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { IndexAboutmeComponent } from './aboutme/index-aboutme/index-aboutme.component';
 import { HomeResolverService } from './home/home-resolver.service';
 import { HomeComponent } from './home/home.component';
+import { AboutmeSettingsComponent } from './settings/aboutme-settings/aboutme-settings.component';
+import { HomeSettingsComponent } from './settings/home-settings/home-settings.component';
 import { IndexSettingsComponent } from './settings/index-settings/index-settings.component';
 import { CreateSkillComponent } from './skills/create-skill/create-skill.component';
 import { EditSkillComponent } from './skills/edit-skill/edit-skill.component';
@@ -15,7 +17,17 @@ const routes: Routes = [
   {path: 'skills', component: IndexSkillsComponent},
   {path: 'skills/edit/:id', component: EditSkillComponent, resolve:{skill: ResolverService} },
   {path: 'skills/create', component: CreateSkillComponent},
-  {path: 'settings', component:IndexSettingsComponent},
+  {path: 'settings', component:IndexSettingsComponent, 
+    children:[
+      {
+        path:'home',
+        component: HomeSettingsComponent,
+      },
+      {
+        path: 'aboutme',
+        component: AboutmeSettingsComponent
+      }
+    ]},
   {path: '**', redirectTo: ''}
 ];
 
