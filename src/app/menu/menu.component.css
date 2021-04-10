@@ -31,6 +31,9 @@ mat-toolbar {
     width: 66%;
     transition: ease-in-out 500ms width;
 }
+.active {
+    border: #fff solid 1px;
+}
 
 .nav-container a {
     width: 100%;

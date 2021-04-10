@@ -12,19 +12,19 @@
             <mat-icon>close</mat-icon>
         </div>
         <div>
-            <a mat-button routerLink="">{{model.home}}</a>
+            <a mat-button routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">{{model.home}}</a>
+        </div>
+        <div >
+            <a mat-button routerLinkActive="active" routerLink="aboutme">{{model.aboutme}}</a>
         </div>
         <div>
-            <a mat-button routerLink="aboutme">{{model.aboutme}}</a>
+            <a mat-button routerLinkActive="active" routerLink="contact">{{model.contact}}</a>
         </div>
         <div>
-            <a mat-button routerLink="contact">{{model.contact}}</a>
+            <a mat-button routerLinkActive="active" routerLink="portfolio">Portfolio</a>
         </div>
         <div>
-            <a mat-button routerLink="portfolio">Portfolio</a>
-        </div>
-        <div>
-            <a mat-button routerLink="settings">{{model.settings}}</a>
+            <a mat-button routerLinkActive="active" routerLink="settings">{{model.settings}}</a>
         </div>
         <div class="space">
 
