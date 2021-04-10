@@ -1,5 +1,9 @@
-.settings{
-    padding: 1em;
-    background-color: #626566;
-    border-radius: 10px;
+.active {
+    border: 3px solid rgb(247, 244, 244);
+}
+
+.router-container {
+    padding: 1em 0.5em;
+    background: rgb(105, 103, 103);
+    border-radius: 3px;
 }

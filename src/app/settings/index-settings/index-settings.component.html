@@ -1,20 +1,11 @@
 <div class="gpad">
     <h2>Settings</h2>
     <div>
-        <button type="button" mat-raised-button color="accent" (click)="settings='home'">Home</button>
-        <button type="button" mat-raised-button color="accent" (click)="settings='aboutme'">About</button>
-        <button type="button" mat-raised-button color="accent" (click)="settings='contact'">Contact</button>
+        <a mat-raised-button color="accent" routerLinkActive="active" routerLink="./home">Home</a>
+        <a mat-raised-button color="accent" routerLinkActive="active" routerLink="./aboutme">About</a>
     </div>
-   
-    <div [ngSwitch]="settings" class="settings">
-        <div *ngSwitchCase="'home'">
-            <app-home-settings></app-home-settings>
-        </div>
-        <div *ngSwitchCase="'aboutme'">
-            <app-aboutme-settings></app-aboutme-settings>
-        </div>
+    <div class="router-container">
+        <router-outlet></router-outlet>
     </div>
+    
 </div>
-
-
-
