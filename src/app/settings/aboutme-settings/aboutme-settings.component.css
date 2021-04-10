@@ -1,0 +1,8 @@
+.active {
+    border: 2px solid rgb(247, 32, 32);
+}
+
+.router-container {
+    padding: 0.5em;
+    background: rgb(59, 58, 58);
+}
