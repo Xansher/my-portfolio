@@ -20,17 +20,12 @@ export class EditSkillComponent implements OnInit {
     this.activatedRoute.data.subscribe((data: Data)=>{
       this.model=data['skill'];
     })
-    /*
-    this.activatedRoute.params.subscribe(params =>{
-      this.model.id= params.id;
-    })*/
 
   }
 
   saveChanges( skill:skillCreationDTO){  
-    console.log(skill);
     this.skillsService.edit(this.model.id, skill).subscribe(()=> {
-      this.router.navigate(['/skills']);
+      this.router.navigate(['/settings/aboutme/skills']);
     });
 
     

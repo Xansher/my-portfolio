@@ -17,7 +17,7 @@ export class CreateSkillComponent implements OnInit {
 
   onSaveChanges(skillCreationDTO: skillCreationDTO){
     this.skillsService.create(skillCreationDTO).subscribe(()=>{
-      this.router.navigate(['/skills']);
+      this.router.navigate(['/settings/aboutme/skills']);
     });
   }
 }
