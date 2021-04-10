@@ -25,6 +25,7 @@ import { IndexSettingsComponent } from './settings/index-settings/index-settings
 import { SliderComponent } from './utilities/slider/slider.component';
 import { ExperienceComponent } from './aboutme/experience/experience.component';
 import { AboutmeSettingsComponent } from './settings/aboutme-settings/aboutme-settings.component';
+import { AboutmeAboutmeSettingsComponent } from './settings/aboutme-aboutme-settings/aboutme-aboutme-settings.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AboutmeSettingsComponent } from './settings/aboutme-settings/aboutme-se
     IndexSettingsComponent,
     SliderComponent,
     ExperienceComponent,
-    AboutmeSettingsComponent
+    AboutmeSettingsComponent,
+    AboutmeAboutmeSettingsComponent
   ],
   imports: [
     BrowserModule,
