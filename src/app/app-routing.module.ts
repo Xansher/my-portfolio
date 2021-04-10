@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IndexAboutmeComponent } from './aboutme/index-aboutme/index-aboutme.component';
 import { HomeResolverService } from './home/home-resolver.service';
@@ -14,9 +14,6 @@ import { IndexSkillsComponent } from './skills/index-skills/index-skills.compone
 const routes: Routes = [
   {path: '', component: HomeComponent, resolve: {home: HomeResolverService},data: {animation: 'HomePage'}},
   {path: 'aboutme', component: IndexAboutmeComponent, data: {animation: 'AboutPage'}},
-  {path: 'skills', component: IndexSkillsComponent},
-  {path: 'skills/edit/:id', component: EditSkillComponent, resolve:{skill: ResolverService} },
-  {path: 'skills/create', component: CreateSkillComponent},
   {path: 'settings', component:IndexSettingsComponent, 
     children:[
       {
@@ -25,7 +22,13 @@ const routes: Routes = [
       },
       {
         path: 'aboutme',
-        component: AboutmeSettingsComponent
+        component: AboutmeSettingsComponent,
+        children:[
+          {path: 'skills', component: IndexSkillsComponent}, 
+          {path: 'skills/edit/:id', component: EditSkillComponent, resolve:{skill: ResolverService} },
+          {path: 'skills/create', component: CreateSkillComponent}
+          
+        ]
       }
     ]},
   {path: '**', redirectTo: ''}
