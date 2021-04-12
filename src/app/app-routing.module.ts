@@ -2,6 +2,8 @@ import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ExperienceComponent } from './aboutme/experience/experience.component';
 import { IndexAboutmeComponent } from './aboutme/index-aboutme/index-aboutme.component';
+import { CreateExperienceComponent } from './experience/create-experience/create-experience.component';
+import { EditExperienceComponent } from './experience/edit-experience/edit-experience.component';
 import { IndexExperienceComponent } from './experience/index-experience/index-experience.component';
 import { HomeResolverService } from './home/home-resolver.service';
 import { HomeComponent } from './home/home.component';
@@ -32,7 +34,9 @@ const routes: Routes = [
           {path: 'skills', component: IndexSkillsComponent}, 
           {path: 'skills/edit/:id', component: EditSkillComponent, resolve:{skill: ResolverService} },
           {path: 'skills/create', component: CreateSkillComponent},
-          {path: 'experience', component: IndexExperienceComponent}
+          {path: 'experience', component: IndexExperienceComponent},
+          {path: 'experience/create', component: CreateExperienceComponent},
+          {path: 'experience/edit/:id', component: EditExperienceComponent}
           
         ]
       }
