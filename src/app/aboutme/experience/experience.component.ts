@@ -1,5 +1,7 @@
+import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { expDTO } from './experience.model';
+import { experienceDTO } from 'src/app/experience/experience.model';
+
 
 @Component({
   selector: 'app-experience',
@@ -10,22 +12,23 @@ export class ExperienceComponent implements OnInit {
 
   constructor() { }
 
-  list:expDTO[]=[{
-    startDate:'2020.11',
-    endDate:'2021.02',
+  language;
+  list:experienceDTO[]=[{
+    id:1,
+    startDate: new Date(),
+    endDate: new Date(),
     position:'Fullstack Developer',
     company: 'Company',
-    description: "Obowiązki: \n* Programowanie urządzenia do wysyłania danych  \n* Tworzenie serwera do odbioru danych (API, Backend) \n* Tworzenie strony internetowej do wizualizacji danych"
-  },
-  {
-    startDate:'2020.11',
-    endDate:'2021.02',
-    position:'Fullstack Developer',
-    company: 'Company',
-    description: "Obowiązki: \n* Programowanie urządzenia do wysyłania danych  \n* Tworzenie serwera do odbioru danych (API, Backend) \n* Tworzenie strony internetowej do wizualizacji danych"
-  }];
+    englishDuties: "Obowiązki: \n* Programowanie urządzenia do wysyłania danych  \n* Tworzenie serwera do odbioru danych (API, Backend) \n* Tworzenie strony internetowej do wizualizacji danych",
+    polishDuties: "siema"
+  }
+  ];
 
   ngOnInit(): void {
+    this.language = localStorage.getItem('lang');
   }
 
+  format(date){
+    return formatDate(date,'yyyy.MM', 'en');
+  }
 }

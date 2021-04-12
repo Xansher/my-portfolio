@@ -2,16 +2,21 @@
     <div class="experience-container">
         <div *ngFor="let model of list" class="experience">
             <div class="date-container">
-                <div >{{model.startDate}}</div>
+                <div >{{format(model.startDate)}}</div>
                 <div class="date-separator">-</div>
-                <div>{{model.endDate}}</div>
+                <div>{{format(model.endDate)}}</div>
             </div>
             <div class="position">
                 {{model.position}}
             </div>
             <div class="company">{{model.company}}</div>
             <div class="description">
-                <markdown [data]="model.description"></markdown>
+                <div *ngIf="language=='english'">
+                    <markdown [data]="model.englishDuties"></markdown>
+                </div>
+                <div *ngIf="language=='polish'">
+                    <markdown [data]="model.polishDuties"></markdown>
+                </div>
             </div>
         </div>  
     </div>
