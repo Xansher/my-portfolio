@@ -19,8 +19,8 @@ export class IndexExperienceComponent implements OnInit {
     });
   }
 
-  delete(){
-    this.experienceService;
+  delete(id:number){
+    this.experienceService.delete(id).subscribe(()=>{});
   }
   format(date){
     return formatDate(date,'yyyy.MM', 'en');
