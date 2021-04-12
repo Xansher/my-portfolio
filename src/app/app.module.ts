@@ -27,6 +27,9 @@ import { ExperienceComponent } from './aboutme/experience/experience.component';
 import { AboutmeSettingsComponent } from './settings/aboutme-settings/aboutme-settings.component';
 import { AboutmeAboutmeSettingsComponent } from './settings/aboutme-aboutme-settings/aboutme-aboutme-settings.component';
 import { IndexExperienceComponent } from './experience/index-experience/index-experience.component';
+import { FormExperienceComponent } from './experience/form-experience/form-experience.component';
+import { CreateExperienceComponent } from './experience/create-experience/create-experience.component';
+import { EditExperienceComponent } from './experience/edit-experience/edit-experience.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,10 @@ import { IndexExperienceComponent } from './experience/index-experience/index-ex
     ExperienceComponent,
     AboutmeSettingsComponent,
     AboutmeAboutmeSettingsComponent,
-    IndexExperienceComponent
+    IndexExperienceComponent,
+    FormExperienceComponent,
+    CreateExperienceComponent,
+    EditExperienceComponent
   ],
   imports: [
     BrowserModule,
