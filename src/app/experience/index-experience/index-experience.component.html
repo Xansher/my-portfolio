@@ -1,1 +1,31 @@
-<p>index-experience works!</p>
+<a mat-raised-button class="add-button" routerLink="./create"><mat-icon>add_box</mat-icon>Add</a>
+<app-generic-list [list]="list">
+    <ng-container content>
+        <table mat-table [dataSource]="list">
+            <ng-container matColumnDef="startDate">
+                <th mat-header-cell *matHeaderCellDef>Start</th>
+                <td mat-cell *matCellDef="let exp">{{format(exp.startDate)}}</td>
+            </ng-container>
+            <ng-container matColumnDef="position">
+                <th mat-header-cell *matHeaderCellDef>Position</th>
+                <td mat-cell *matCellDef="let exp">
+                    <div class="cell-container">
+                        <div class="bold">{{exp.position}}</div>
+                        <div> {{exp.company}} </div>
+                    </div>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Actions</th>
+                <td mat-cell *matCellDef="let exp"> 
+                    <a mat-flat-button class="edit-button"  routerLink="./edit/{{exp.id}}">Edit</a>
+                    <button mat-flat-button (confirm)="delete(exp.id)" color="warn" [swal]="{
+                        title:'Confirmation',text:'Are you sure that you want to delete the record?', showCancelButton: true
+                    }">Remove</button>
+                </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let row; columns:columnsToDisplay"></tr>
+        </table>
+    </ng-container>
+</app-generic-list>

@@ -1,0 +1,24 @@
+table {
+    width: 100%;
+}
+.cell-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.mat-cell {
+    padding-right: 1em;
+}
+.bold{
+    font-weight: bold;
+}
+a {
+    margin-right: 1em;
+}
+.add-button {
+    color: rgb(22, 22, 22);
+    background: rgb(82, 189, 82);
+}
+.edit-button {
+    background-color: rgb(38, 101, 235);
+}
