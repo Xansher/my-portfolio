@@ -1,0 +1,11 @@
+mat-form-field {
+    width: 100%;
+}
+
+.buttons-container {
+    margin: 1em;
+    max-width: 225px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

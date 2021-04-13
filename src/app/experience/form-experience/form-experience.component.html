@@ -1,7 +1,41 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="saveChanges()">
     <mat-form-field appearance="outline">
         <mat-label>Start date</mat-label>
-
+        <input matInput formControlName="startDate" [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker
+            startView="multi-year"
+            (monthSelected)="chosenMonthHandler($event, picker)">
+        </mat-datepicker>
+        <mat-error>The field start date is required</mat-error>
     </mat-form-field>
-
+    <mat-form-field appearance="outline">
+        <mat-label>End date</mat-label>
+        <input matInput formControlName="endDate" [matDatepicker]="endPicker">
+        <mat-datepicker-toggle matSuffix [for]="endPicker"></mat-datepicker-toggle>
+        <mat-datepicker #endPicker
+            startView="multi-year"
+            (monthSelected)="chosenMonthHandler($event, endPicker)">
+        </mat-datepicker>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Position</mat-label>
+        <input matInput formControlName="position">
+        <mat-error>The field position is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Company</mat-label>
+        <input matInput formControlName="company">
+        <mat-error>The field company is required</mat-error>
+    </mat-form-field>
+    <h3>English duties</h3>
+    <app-input-markdown [markdownContent]="model?.englishDuties" (changeMarkdown)="changeEnglishMarkdown($event)"></app-input-markdown>
+    <h3>Polish duties</h3>
+    <app-input-markdown [markdownContent]="model?.polishDuties" (changeMarkdown)="changePolishMarkdown($event)"></app-input-markdown>
+    
+    <div class="buttons-container">
+        <button mat-flat-button color="accent" type="submit" [disabled]="form.invalid" >Save changes</button>
+        <a mat-flat-button color="warn" routerLink="">Cancel</a>
+    </div>
+    
 </form>
