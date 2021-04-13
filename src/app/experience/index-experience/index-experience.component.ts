@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { experienceDTO } from '../experience.model';
 import { ExperienceService } from '../experience.service';
 import { formatDate } from '@angular/common';
+import { ActivatedRoute, Data } from '@angular/router';
 
 @Component({
   selector: 'app-index-experience',
@@ -10,13 +11,13 @@ import { formatDate } from '@angular/common';
 })
 export class IndexExperienceComponent implements OnInit {
 
-  constructor(private experienceService:ExperienceService) { }
+  constructor(private experienceService:ExperienceService, private activatedRoute: ActivatedRoute) { }
   list:experienceDTO[];
   columnsToDisplay=['startDate','position', 'actions']
   ngOnInit(): void {
-    this.experienceService.get().subscribe(list=>{
-      this.list=list;
-    });
+   this.activatedRoute.data.subscribe((data: Data) => {
+     this.list=data['experiences'];
+   })
   }
 
   delete(id:number){
