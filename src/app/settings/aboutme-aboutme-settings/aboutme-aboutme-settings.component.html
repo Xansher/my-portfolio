@@ -1,8 +1,9 @@
-<form>
+<form [formGroup]="form" (ngSubmit)="saveChanges()">
     <h2>English description</h2>
-    <app-input-markdown label="description"></app-input-markdown>
+    <app-input-markdown label="description" [markdownContent]="model?.englishDescription" (changeMarkdown)="changeEnglishMarkdown($event)"></app-input-markdown>
     <h2>Polish description</h2>
-    <app-input-markdown label="description"></app-input-markdown>
+    <app-input-markdown label="description" [markdownContent]="model?.polishDescription" (changeMarkdown)="changePolishMarkdown($event)" ></app-input-markdown>
     <h2>Photo</h2>
-    <app-input-img></app-input-img>
+    <app-input-img [currentImageURL]="model?.photo" (onImageSelected)="onImageSelected($event)"></app-input-img>
+    <button mat-flat-button color="accent" type="submit">Save</button>
 </form>
