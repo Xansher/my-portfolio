@@ -7,6 +7,9 @@ import {MatInputModule} from '@angular/material/input'
 import {MatFormFieldModule} from '@angular/material/form-field'
 import {MatTabsModule} from '@angular/material/tabs'
 import {MatTableModule} from '@angular/material/table'
+import {MatDatepickerModule} from '@angular/material/datepicker'
+import {MatNativeDateModule} from '@angular/material/core'
+
 
 @NgModule({
   declarations: [],
@@ -17,7 +20,9 @@ import {MatTableModule} from '@angular/material/table'
     MatInputModule,
     MatFormFieldModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   imports: [
     CommonModule,
