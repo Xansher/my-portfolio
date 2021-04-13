@@ -3,7 +3,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExperienceComponent } from './aboutme/experience/experience.component';
 import { IndexAboutmeComponent } from './aboutme/index-aboutme/index-aboutme.component';
 import { CreateExperienceComponent } from './experience/create-experience/create-experience.component';
+import { EditExperienceResolverResolver } from './experience/edit-experience/edit-experience-resolver.resolver';
 import { EditExperienceComponent } from './experience/edit-experience/edit-experience.component';
+import { ExperiencesResolverService } from './experience/experiences.resolver';
 import { IndexExperienceComponent } from './experience/index-experience/index-experience.component';
 import { HomeResolverService } from './home/home-resolver.service';
 import { HomeComponent } from './home/home.component';
@@ -18,7 +20,7 @@ import { IndexSkillsComponent } from './skills/index-skills/index-skills.compone
 
 const routes: Routes = [
   {path: '', component: HomeComponent, resolve: {home: HomeResolverService},data: {animation: 'HomePage'}},
-  {path: 'aboutme', component: IndexAboutmeComponent, data: {animation: 'AboutPage'}},
+  {path: 'aboutme', component: IndexAboutmeComponent, resolve:{experiences: ExperiencesResolverService}, data: {animation: 'AboutPage'}},
   {path: 'settings', component:IndexSettingsComponent, 
     children:[
       {
@@ -29,14 +31,15 @@ const routes: Routes = [
       {
         path: 'aboutme',
         component: AboutmeSettingsComponent,
+        
         children:[
           {path: 'aboutme', component: AboutmeAboutmeSettingsComponent},
           {path: 'skills', component: IndexSkillsComponent}, 
           {path: 'skills/edit/:id', component: EditSkillComponent, resolve:{skill: ResolverService} },
           {path: 'skills/create', component: CreateSkillComponent},
-          {path: 'experience', component: IndexExperienceComponent},
+          {path: 'experience', component: IndexExperienceComponent, resolve:{experiences: ExperiencesResolverService}},
           {path: 'experience/create', component: CreateExperienceComponent},
-          {path: 'experience/edit/:id', component: EditExperienceComponent}
+          {path: 'experience/edit/:id', component: EditExperienceComponent, resolve: {experience: EditExperienceResolverResolver}}
           
         ]
       }
