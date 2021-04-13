@@ -57,7 +57,6 @@ export class FormExperienceComponent implements OnInit {
 
 
   chosenMonthHandler(event, picker){
-    console.log(picker);
     if(picker.id=="mat-datepicker-0"){
       this.form.get('startDate').setValue(event)
     }
