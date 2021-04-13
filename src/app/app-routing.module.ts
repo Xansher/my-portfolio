@@ -37,7 +37,7 @@ const routes: Routes = [
           {path: 'skills', component: IndexSkillsComponent}, 
           {path: 'skills/edit/:id', component: EditSkillComponent, resolve:{skill: ResolverService} },
           {path: 'skills/create', component: CreateSkillComponent},
-          {path: 'experience', component: IndexExperienceComponent, resolve:{experiences: ExperiencesResolverService}},
+          {path: 'experience', component: IndexExperienceComponent},
           {path: 'experience/create', component: CreateExperienceComponent},
           {path: 'experience/edit/:id', component: EditExperienceComponent, resolve: {experience: EditExperienceResolverResolver}}
           

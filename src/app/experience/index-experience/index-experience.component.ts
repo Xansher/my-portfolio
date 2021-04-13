@@ -11,17 +11,23 @@ import { ActivatedRoute, Data } from '@angular/router';
 })
 export class IndexExperienceComponent implements OnInit {
 
-  constructor(private experienceService:ExperienceService, private activatedRoute: ActivatedRoute) { }
+  constructor(private experienceService:ExperienceService) { }
   list:experienceDTO[];
   columnsToDisplay=['startDate','position', 'actions']
   ngOnInit(): void {
-   this.activatedRoute.data.subscribe((data: Data) => {
-     this.list=data['experiences'];
-   })
+    this.loadData();
   }
 
+  loadData(){
+    this.experienceService.get().subscribe( list =>{
+      this.list=list;
+    })
+  }
   delete(id:number){
-    this.experienceService.delete(id).subscribe(()=>{});
+    this.experienceService.delete(id).subscribe(()=>{
+      this.loadData();
+    });
+    
   }
   format(date){
     return formatDate(date,'yyyy.MM', 'en');
