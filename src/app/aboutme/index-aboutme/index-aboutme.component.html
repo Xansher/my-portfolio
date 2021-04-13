@@ -8,13 +8,18 @@
             </div>
         </div>
         <div class="column-2">
+            <div class="col-container">
+                <div class="column-2-1"> 
+                    <markdown *ngIf="language=='english' " [data]="aboutMe.englishDescription"></markdown>
+                    <markdown *ngIf="language=='polish' " [data]="aboutMe.polishDescription"></markdown>
+                </div>
+                <div class="column-2-2">
+                    <img [src]="aboutMe.photo"/>
+                </div>
+            </div>
             
-            <markdown *ngIf="language=='english' " [data]="aboutMe.englishDescription"></markdown>
-            <markdown *ngIf="language=='polish' " [data]="aboutMe.polishDescription"></markdown>
         </div>
-        <div class="column-3">
-            <img [src]="aboutMe.photo"/>
-        </div>
+        
     </div>
     <div class="row">
         <div class="column-1">
@@ -39,7 +44,13 @@
             </div>
         </div>
         <div class="column-2">
-            <app-experience [list]="expList"></app-experience>
+            <div class="app-exp-container">
+                <div class="app-exp">
+                    <app-experience [list]="expList" ></app-experience>
+                </div>
+                
+            </div>
+            
         </div>
     </div>
 </div>
