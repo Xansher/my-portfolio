@@ -68,11 +68,11 @@ export class FormExperienceComponent implements OnInit {
     
   }
 
-  changeEnglishMarkdown($event){
-
+  changeEnglishMarkdown(e){
+    this.form.get('englishDuties').setValue(e);
   }
-  changePolishMarkdown($event){
-
+  changePolishMarkdown(e){
+    this.form.get('polishDuties').setValue(e);
   }
 
   saveChanges(){
