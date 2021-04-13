@@ -1,6 +1,7 @@
 import { animate, query, state, style, transition, trigger } from '@angular/animations';
 
 import { AfterViewChecked, Component, HostBinding, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Data } from '@angular/router';
 import { skillDTO } from 'src/app/skills/skills.models';
 import { SkillsService } from 'src/app/skills/skills.service';
 
@@ -17,12 +18,12 @@ export class IndexAboutmeComponent implements OnInit, OnDestroy {
 
   
 
-  constructor(private skillService:SkillsService) { }
+  constructor(private skillService:SkillsService, private activatedRoute:ActivatedRoute) { }
 
   labels:string[];
 
   skills: skillDTO[];
-
+  expList;
 
 
   ngOnInit(): void {
@@ -37,6 +38,9 @@ export class IndexAboutmeComponent implements OnInit, OnDestroy {
     this.skillService.getAll().subscribe(skills => {
       this.skills=skills;
     });
+    this.activatedRoute.data.subscribe( (data: Data) => {
+      this.expList=data['experiences'];
+    })
 
   }
 
