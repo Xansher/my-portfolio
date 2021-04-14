@@ -30,6 +30,7 @@ import { IndexExperienceComponent } from './experience/index-experience/index-ex
 import { FormExperienceComponent } from './experience/form-experience/form-experience.component';
 import { CreateExperienceComponent } from './experience/create-experience/create-experience.component';
 import { EditExperienceComponent } from './experience/edit-experience/edit-experience.component';
+import { IndexContactComponent } from './contact/index-contact/index-contact.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { EditExperienceComponent } from './experience/edit-experience/edit-exper
     IndexExperienceComponent,
     FormExperienceComponent,
     CreateExperienceComponent,
-    EditExperienceComponent
+    EditExperienceComponent,
+    IndexContactComponent
   ],
   imports: [
     BrowserModule,
