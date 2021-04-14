@@ -6,21 +6,19 @@
         <div class="column">
             <div>
                 <div class="column-label">
-                    Explore
+                    {{labels.explore}}
                 </div>
                 <ul>
                     <li>
-                        <a routerLink="aboutme">About me</a>
+                        <a routerLink="aboutme">{{footerNav.about}}</a>
                     </li>
                     <li>
-                        <a routerLink="skills">Skills</a>
+                        <a routerLink="contact">{{footerNav.contact}}</a>
                     </li>
                     <li>
-                        <a routerLink="experience">Experience</a>
+                        <a routerLink="portfolio">{{footerNav.portfolio}}</a>
                     </li>
-                    <li>
-                        <a routerLink="contact">Contact</a>
-                    </li>
+                   
                 </ul>
             </div>
             
@@ -28,7 +26,7 @@
         <div class="column">
             <div>
                 <div class="column-label">
-                    Social
+                    {{labels.social}}
                 </div>
                 <ul>
                     <li>
@@ -62,14 +60,14 @@
 
         <div class="column contact">
              <div class="column-label">
-                Contact
+                {{labels.contact}}
             </div>
             <div>
                 <div class="contact-email">
                     Email: grzesiek.aszlar@gmail.com
                 </div>
                 <div class="contact-text">
-                    Fell free to contact me by email or page. 
+                    {{labels.contactText}}
                 </div>
             </div>
             
