@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-index-settings',
@@ -7,13 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   settings:string="home";
 
   
 
   ngOnInit(): void {
+    if(location.pathname=="/settings"){
+      this.router.navigate(['settings/home']);
+    }
+    
   }
 
 }
