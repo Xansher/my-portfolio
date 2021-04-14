@@ -14,5 +14,6 @@ export interface Labels{
 export interface ContactDTO {
     linkedin: string,
     github: string,
-    instagram
+    instagram: string;
+    email: string;
 }
