@@ -24,6 +24,7 @@ const routes: Routes = [
   {path: 'aboutme', component: IndexAboutmeComponent, resolve:{experiences: ExperiencesResolverService, about: AboutMeResolverService}, data: {animation: 'AboutPage'}},
   {path: 'settings', component:IndexSettingsComponent, 
     children:[
+      {path: '', redirectTo: 'home', pathMatch: 'full'},
       {
         path:'home',
         component: HomeSettingsComponent,
@@ -34,6 +35,7 @@ const routes: Routes = [
         component: AboutmeSettingsComponent,
         
         children:[
+          {path: '', redirectTo: 'aboutme', pathMatch: 'full'},
           {path: 'aboutme', component: AboutmeAboutmeSettingsComponent},
           {path: 'skills', component: IndexSkillsComponent}, 
           {path: 'skills/edit/:id', component: EditSkillComponent, resolve:{skill: ResolverService} },

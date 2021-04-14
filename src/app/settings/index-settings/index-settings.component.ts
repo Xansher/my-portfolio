@@ -8,17 +8,14 @@ import { Router } from '@angular/router';
 })
 export class IndexSettingsComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor() { }
 
   settings:string="home";
 
   
 
   ngOnInit(): void {
-    if(location.pathname=="/settings"){
-      this.router.navigate(['settings/home']);
-    }
-    
+  
   }
 
 }
