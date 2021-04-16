@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="send()">
+    <mat-form-field appearance="outline">
+        <mat-label>Your name</mat-label>
+        <input matInput formControlName="name">
+        <mat-error>Name is required</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline" >
+        <mat-label>Your email</mat-label>
+        <input #email matInput formControlName="email" >
+        <mat-error *ngIf="form.invalid">Invalid email</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill" >
+        <mat-label>Message</mat-label>
+        <textarea matInput formControlName="message"></textarea>
+        <mat-error>Message is required</mat-error>
+    </mat-form-field>
+    <div class="button-container">
+        <button mat-stroked-button type="submit" class="edit-button">Send</button>
+    </div>
+    
+</form>

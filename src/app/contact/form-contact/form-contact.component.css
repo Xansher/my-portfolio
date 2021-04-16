@@ -1,0 +1,16 @@
+mat-form-field {
+    width: 100%;
+}
+
+.background--white{
+    background: white;
+}
+
+textarea {
+    height: 250px;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+}
