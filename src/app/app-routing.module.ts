@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ExperienceComponent } from './aboutme/experience/experience.component';
 import { AboutMeResolverService } from './aboutme/index-aboutme/aboutme.resolver';
 import { IndexAboutmeComponent } from './aboutme/index-aboutme/index-aboutme.component';
+import { IndexContactComponent } from './contact/index-contact/index-contact.component';
 import { CreateExperienceComponent } from './experience/create-experience/create-experience.component';
 import { EditExperienceResolverResolver } from './experience/edit-experience/edit-experience-resolver.resolver';
 import { EditExperienceComponent } from './experience/edit-experience/edit-experience.component';
@@ -22,6 +23,7 @@ import { IndexSkillsComponent } from './skills/index-skills/index-skills.compone
 const routes: Routes = [
   {path: '', component: HomeComponent, resolve: {home: HomeResolverService},data: {animation: 'HomePage'}},
   {path: 'aboutme', component: IndexAboutmeComponent, resolve:{experiences: ExperiencesResolverService, about: AboutMeResolverService}, data: {animation: 'AboutPage'}},
+  {path: 'contact', component: IndexContactComponent, data: { animation: 'ContactPage'}},
   {path: 'settings', component:IndexSettingsComponent, 
     children:[
       {path: '', redirectTo: 'home', pathMatch: 'full'},
