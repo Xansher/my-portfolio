@@ -1,5 +1,5 @@
-export interface contactSendingDTO{
+export interface messageCreatingDTO{
     name:string;
     email:string;
-    message:string;
+    messageContent:string;
 }
