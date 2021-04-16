@@ -44,7 +44,7 @@ trigger('routeAnimations', [
 
 export const opacity =
 trigger('routeAnimations', [
-  transition('HomePage <=> AboutPage', [
+  transition('HomePage <=> AboutPage, HomePage <=> ContactPage, ContactPage <=> AboutPage', [
     style({ position: 'relative' }),
     query(':enter, :leave', [
       style({
