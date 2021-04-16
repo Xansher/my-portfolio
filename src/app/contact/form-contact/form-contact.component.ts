@@ -1,5 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, FormGroupDirective, Validators } from '@angular/forms';
 import { messageCreatingDTO } from '../contact.model';
 
 @Component({
@@ -10,6 +10,8 @@ import { messageCreatingDTO } from '../contact.model';
 export class FormContactComponent implements OnInit {
 
   constructor(private formBuilder: FormBuilder) { }
+
+  @ViewChild('formGroupDirective') formGroupDirective: FormGroupDirective;
 
   form:FormGroup;
   @Output()
@@ -26,6 +28,9 @@ export class FormContactComponent implements OnInit {
   send(){
 
     this.onSend.emit(this.form.value);
+  }
+  clearForm(){
+    this.formGroupDirective.resetForm();
   }
 
 }
