@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { formatCurrency } from '@angular/common';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { messageCreatingDTO } from '../contact.model';
+import { ContactService } from '../contact.service';
+import { FormContactComponent } from '../form-contact/form-contact.component';
 
 @Component({
   selector: 'app-index-contact',
@@ -8,13 +11,19 @@ import { messageCreatingDTO } from '../contact.model';
 })
 export class IndexContactComponent implements OnInit {
 
-  constructor() { }
+  constructor(private contactService:ContactService) { }
+
+  @ViewChild('form')
+  form:FormContactComponent;
+
 
   ngOnInit(): void {
   }
+
   send(messageCreatingDTO:messageCreatingDTO){
-    console.log(messageCreatingDTO);
-    
+    this.contactService.create(messageCreatingDTO).subscribe(()=>{
+      this.form.clearForm();
+    });
   }
 
 }
