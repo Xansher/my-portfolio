@@ -1,6 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { contactSendingDTO } from '../contact.model';
+import { messageCreatingDTO } from '../contact.model';
 
 @Component({
   selector: 'app-form-contact',
@@ -13,7 +13,7 @@ export class FormContactComponent implements OnInit {
 
   form:FormGroup;
   @Output()
-  onSend= new EventEmitter<contactSendingDTO>();
+  onSend= new EventEmitter<messageCreatingDTO>();
 
   ngOnInit(): void {
     this.form=this.formBuilder.group({
