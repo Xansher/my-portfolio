@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="saveChanges()">
+    <mat-form-field appearance="outline">
+        <mat-label>Linkedin</mat-label>
+        <input matInput  formControlName="linkedin">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Github</mat-label>
+        <input matInput  formControlName="github">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Instagram</mat-label>
+        <input matInput  formControlName="instagram">
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput  formControlName="email">
+    </mat-form-field>
+    <button mat-stroked-button class="edit-button" type="submit" >Save changes</button>
+</form>
