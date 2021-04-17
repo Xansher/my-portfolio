@@ -30,7 +30,7 @@
                 </div>
                 <ul>
                     <li>
-                        <a href="https://www.linkedin.com/in/grzegorz-aszlar/">
+                        <a [href]="model.linkedin">
                             <div class=social>
                                 <img [src]="'assets/Linkedin.svg'" />
                                 <span>Linkedin</span> 
@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://github.com/Xansher">
+                        <a [href]="model.github">
                             <div class=social>
                                 <img [src]="'assets/Github.svg'" />
                                 <span>GitHub</span> 
@@ -46,7 +46,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="https://www.instagram.com/grzes_czesc/">
+                        <a [href]="model.instagram">
                             <div class=social>
                                 <img [src]="'assets/Instagram.svg'" />
                                 <span>Instagram</span> 
@@ -64,7 +64,7 @@
             </div>
             <div>
                 <div class="contact-email">
-                    Email: grzesiek.aszlar@gmail.com
+                    {{model.email}}
                 </div>
                 <div class="contact-text">
                     {{labels.contactText}}

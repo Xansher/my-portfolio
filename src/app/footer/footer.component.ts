@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { contactDTO } from '../contact/contact.model';
+import { CsService } from '../settings/contact-settings/cs.service';
 import { footerNav, Labels } from './footer.model';
 
 @Component({
@@ -8,10 +10,11 @@ import { footerNav, Labels } from './footer.model';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private cs:CsService) { }
 
   footerNav:footerNav;
   labels: Labels;
+  model:contactDTO;
 
   ngOnInit(): void {
     if(localStorage.getItem('lang')=="english"){
@@ -22,6 +25,10 @@ export class FooterComponent implements OnInit {
       this.footerNav= {about: 'O mnie', contact: 'Kontakt', portfolio: 'Portfolio'};
       this.labels= {explore: 'Zobacz', social: 'Media', contact: 'Kontakt', contactText:'Kontaktuj się poprzez mail lub formularz.'};
     }
+    this.cs.get().subscribe(contact=>{
+      this.model=contact;
+    })
+
   }
 
 }
