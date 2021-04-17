@@ -1,18 +1,18 @@
 <form [formGroup]="form" #formGroupDirective="ngForm" (ngSubmit)="send()">
     <mat-form-field appearance="outline">
-        <mat-label>Your name</mat-label>
+        <mat-label>{{labels.name}}</mat-label>
         <input matInput formControlName="name">
-        <mat-error>Name is required</mat-error>
+        <mat-error>{{labels.nameError}}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="outline" >
-        <mat-label>Your email</mat-label>
+        <mat-label>{{labels.email}}</mat-label>
         <input #email matInput formControlName="email" >
-        <mat-error *ngIf="form.invalid">Invalid email</mat-error>
+        <mat-error *ngIf="form.invalid">{{labels.emailError}}</mat-error>
     </mat-form-field>
     <mat-form-field appearance="fill" >
-        <mat-label>Message</mat-label>
+        <mat-label>{{labels.message}}</mat-label>
         <textarea matInput formControlName="messageContent"></textarea>
-        <mat-error>Message is required</mat-error>
+        <mat-error>{{labels.messageError}}</mat-error>
     </mat-form-field>
     <div class="button-container">
         <button mat-stroked-button type="submit" [disabled]="form.invalid" class="edit-button">Send</button>
