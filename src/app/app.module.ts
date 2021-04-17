@@ -32,6 +32,7 @@ import { CreateExperienceComponent } from './experience/create-experience/create
 import { EditExperienceComponent } from './experience/edit-experience/edit-experience.component';
 import { IndexContactComponent } from './contact/index-contact/index-contact.component';
 import { FormContactComponent } from './contact/form-contact/form-contact.component';
+import { ContactSettingsComponent } from './settings/contact-settings/contact-settings.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { FormContactComponent } from './contact/form-contact/form-contact.compon
     CreateExperienceComponent,
     EditExperienceComponent,
     IndexContactComponent,
-    FormContactComponent
+    FormContactComponent,
+    ContactSettingsComponent
   ],
   imports: [
     BrowserModule,
