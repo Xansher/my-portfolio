@@ -13,6 +13,7 @@ import { HomeResolverService } from './home/home-resolver.service';
 import { HomeComponent } from './home/home.component';
 import { AboutmeAboutmeSettingsComponent } from './settings/aboutme-aboutme-settings/aboutme-aboutme-settings.component';
 import { AboutmeSettingsComponent } from './settings/aboutme-settings/aboutme-settings.component';
+import { ContactSettingsComponent } from './settings/contact-settings/contact-settings.component';
 import { HomeSettingsComponent } from './settings/home-settings/home-settings.component';
 import { IndexSettingsComponent } from './settings/index-settings/index-settings.component';
 import { CreateSkillComponent } from './skills/create-skill/create-skill.component';
@@ -47,7 +48,8 @@ const routes: Routes = [
           {path: 'experience/edit/:id', component: EditExperienceComponent, resolve: {experience: EditExperienceResolverResolver}}
           
         ]
-      }
+      },
+      {path: 'contact', component: ContactSettingsComponent},
     ]},
   {path: '**', redirectTo: ''}
 ];
