@@ -31,8 +31,18 @@ export class IndexContactComponent implements OnInit {
   @ViewChild('form')
   form:FormContactComponent;
   modal:boolean=false;
+  model;
+
 
   ngOnInit(): void {
+    const lang=localStorage.getItem('lang');
+    if(lang=="english"){
+      this.model={label:'Contact', text: 'I will response!', underText:'Fell free to contact me by email or contact form.'}
+    }
+    if(lang=="polish"){
+      this.model={label:'Kontakt', text: 'Na pewno odpowiem!', underText:'Zapraszam do kontaktu przez email lub formularz.'}
+    }
+    
   }
 
   send(messageCreatingDTO:messageCreatingDTO){
