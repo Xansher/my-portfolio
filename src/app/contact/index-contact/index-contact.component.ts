@@ -1,7 +1,8 @@
 import { animate, style, transition, trigger } from '@angular/animations';
 import { formatCurrency } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { messageCreatingDTO } from '../contact.model';
+import { CsService } from 'src/app/settings/contact-settings/cs.service';
+import { contactDTO, messageCreatingDTO } from '../contact.model';
 import { ContactService } from '../contact.service';
 import { FormContactComponent } from '../form-contact/form-contact.component';
 
@@ -26,12 +27,13 @@ import { FormContactComponent } from '../form-contact/form-contact.component';
 })
 export class IndexContactComponent implements OnInit {
 
-  constructor(private contactService:ContactService) { }
+  constructor(private contactService:ContactService, private cs:CsService) { }
 
   @ViewChild('form')
   form:FormContactComponent;
   modal:boolean=false;
   model;
+  contact:contactDTO;
 
 
   ngOnInit(): void {
@@ -42,7 +44,9 @@ export class IndexContactComponent implements OnInit {
     if(lang=="polish"){
       this.model={label:'Kontakt', text: 'Na pewno odpowiem!', underText:'Zapraszam do kontaktu przez email lub formularz.'}
     }
-    
+    this.cs.get().subscribe(contact => {
+      this.contact=contact;
+    })
   }
 
   send(messageCreatingDTO:messageCreatingDTO){

@@ -14,21 +14,21 @@
         <div class="social-container">
             <div class="email-container">
                 <mat-icon>email</mat-icon>
-                <div>grzesiekszlar@gmail.com</div>
+                <div>{{contact.email}}</div>
             </div>
             <div class="media-container">
                 <div class="social">
-                    <a href="https://www.linkedin.com/in/grzegorz-aszlar/">
+                    <a [href]="contact.linkedin">
                         <img [src]="'assets/Linkedin.svg'" />
                     </a>
                 </div>
                 <div class="social">
-                    <a href="https://github.com/Xansher">           
+                    <a [href]="contact.github">           
                             <img [src]="'assets/Github.svg'" />
                     </a>
                 </div>
                 <div class="social">
-                    <a href="https://www.instagram.com/grzes_czesc/">
+                    <a [href]="contact.instagram">
                             <img [src]="'assets/Instagram.svg'" />
                     </a>
                 </div>
