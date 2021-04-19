@@ -33,6 +33,7 @@ import { EditExperienceComponent } from './experience/edit-experience/edit-exper
 import { IndexContactComponent } from './contact/index-contact/index-contact.component';
 import { FormContactComponent } from './contact/form-contact/form-contact.component';
 import { ContactSettingsComponent } from './settings/contact-settings/contact-settings.component';
+import { AuthorizeViewComponent } from './security/authorize-view/authorize-view.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { ContactSettingsComponent } from './settings/contact-settings/contact-se
     EditExperienceComponent,
     IndexContactComponent,
     FormContactComponent,
-    ContactSettingsComponent
+    ContactSettingsComponent,
+    AuthorizeViewComponent
   ],
   imports: [
     BrowserModule,
