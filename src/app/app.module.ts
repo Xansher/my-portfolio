@@ -35,6 +35,7 @@ import { FormContactComponent } from './contact/form-contact/form-contact.compon
 import { ContactSettingsComponent } from './settings/contact-settings/contact-settings.component';
 import { AuthorizeViewComponent } from './security/authorize-view/authorize-view.component';
 import { FormAuthenticationComponent } from './security/form-authentication/form-authentication.component';
+import { LoginComponent } from './security/login/login.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { FormAuthenticationComponent } from './security/form-authentication/form
     FormContactComponent,
     ContactSettingsComponent,
     AuthorizeViewComponent,
-    FormAuthenticationComponent
+    FormAuthenticationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
