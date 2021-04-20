@@ -14,7 +14,7 @@ export class FooterComponent implements OnInit {
 
   footerNav:footerNav;
   labels: Labels;
-  model:contactDTO;
+  model:contactDTO={id: 1, linkedin:'', github: '', instagram: '', email: ''};
 
   ngOnInit(): void {
     if(localStorage.getItem('lang')=="english"){

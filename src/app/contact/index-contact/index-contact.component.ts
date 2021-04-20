@@ -33,7 +33,7 @@ export class IndexContactComponent implements OnInit {
   form:FormContactComponent;
   modal:boolean=false;
   model;
-  contact:contactDTO;
+  contact:contactDTO={id: 1, linkedin:'', github: '', instagram: '', email: ''};
 
 
   ngOnInit(): void {
