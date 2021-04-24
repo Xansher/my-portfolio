@@ -11,22 +11,24 @@
         <div (click)="toggleMenu()" class="menu-exit">
             <mat-icon>close</mat-icon>
         </div>
-        <div>
+        <div (click)="hideMenu()">
             <a mat-button routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}" routerLink="/">{{model.home}}</a>
         </div>
-        <div >
+        <div (click)="hideMenu()">
             <a mat-button routerLinkActive="active" routerLink="aboutme">{{model.aboutme}}</a>
         </div>
-        <div>
+        <div (click)="hideMenu()">
             <a mat-button routerLinkActive="active" routerLink="contact">{{model.contact}}</a>
-        </div>
-        <div>
-            <a mat-button routerLinkActive="active" routerLink="portfolio">Portfolio</a>
         </div>
         <app-authorize-view [role]="'admin'">
             <ng-container authorized>
-                <div>
-                    <a mat-button routerLinkActive="active" routerLink="settings">{{model.settings}}</a>
+                <div class="admin-nav-container">
+                    <div (click)="hideMenu()">
+                        <a mat-button routerLinkActive="active" routerLink="portfolio">Portfolio</a>
+                    </div>
+                    <div (click)="hideMenu()"> 
+                        <a mat-button routerLinkActive="active" routerLink="settings">{{model.settings}}</a>
+                    </div>
                 </div>
             </ng-container>
         </app-authorize-view>
@@ -36,18 +38,18 @@
         </div>
     
         <div>
-            <button mat-button type="button" (click)="changeLanguage()">
+            <button mat-button type="button" (click)="changeLanguage(); hideMenu()">
                 ENG/PL
             </button>
         </div>
         <app-authorize-view>
             <ng-container authorized>
                 <div class="mar-left">
-                    <a mat-button (click)="logout()" class="btn">{{model.logout}}</a>
+                    <a mat-button (click)="logout(); hideMenu()" class="btn">{{model.logout}}</a>
                 </div>
             </ng-container>
             <ng-container notAuthorized>
-                <div class="mar-left">
+                <div class="mar-left" (click)="hideMenu()">
                     <a mat-button routerLink="login" class="btn">{{model.login}}</a>
                 </div>
             </ng-container>
