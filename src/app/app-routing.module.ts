@@ -11,6 +11,7 @@ import { ExperiencesResolverService } from './experience/experiences.resolver';
 import { IndexExperienceComponent } from './experience/index-experience/index-experience.component';
 import { HomeResolverService } from './home/home-resolver.service';
 import { HomeComponent } from './home/home.component';
+import { IsAdminGuard } from './is-admin.guard';
 import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
 import { AboutmeAboutmeSettingsComponent } from './settings/aboutme-aboutme-settings/aboutme-aboutme-settings.component';
@@ -29,7 +30,8 @@ const routes: Routes = [
   {path: 'contact', component: IndexContactComponent, data: { animation: 'ContactPage'}},
   {path: 'login', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'settings', component:IndexSettingsComponent, 
+  {path: 'settings', component:IndexSettingsComponent,  
+  canActivate: [IsAdminGuard], canActivateChild:[IsAdminGuard],
     children:[
       {path: '', redirectTo: 'home', pathMatch: 'full'},
       {
