@@ -37,6 +37,7 @@ import { AuthorizeViewComponent } from './security/authorize-view/authorize-view
 import { FormAuthenticationComponent } from './security/form-authentication/form-authentication.component';
 import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
+import { DisplayErrorsComponent } from './utilities/display-errors/display-errors.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { RegisterComponent } from './security/register/register.component';
     AuthorizeViewComponent,
     FormAuthenticationComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    DisplayErrorsComponent
   ],
   imports: [
     BrowserModule,
