@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SecurityService } from '../security/security.service';
 import { menuDTO } from './menu.model';
 
 @Component({
@@ -8,17 +9,17 @@ import { menuDTO } from './menu.model';
 })
 export class MenuComponent implements OnInit {
 
-  constructor() { }
+  constructor(private securityService:SecurityService) { }
 
   model:menuDTO;
   menuVisible= false;
 
   ngOnInit(): void {
     if(localStorage.getItem('lang')=="polish"){
-      this.model= {home:'Główna', aboutme:'O mnie', contact:'Kontakt', settings:'Ustawienia', login:'Logowanie', register: 'Rejestracja'};
+      this.model= {home:'Główna', aboutme:'O mnie', contact:'Kontakt', settings:'Ustawienia', login:'Logowanie', register: 'Rejestracja', logout: 'Wyloguj'};
     }
     else{
-      this.model= {home:'Home', aboutme:'About me', contact:'Contact', settings:'Settings', login:'Login', register: 'Register'};
+      this.model= {home:'Home', aboutme:'About me', contact:'Contact', settings:'Settings', login:'Login', register: 'Register', logout: 'Logout'};
     }
     
   }
@@ -35,6 +36,9 @@ export class MenuComponent implements OnInit {
       localStorage.setItem('lang','english');
     }
     location.reload();
+  }
+  logout(){
+    this.securityService.logout();
   }
 
 }

@@ -5,4 +5,5 @@ export interface menuDTO{
     settings:string;
     login:string;
     register:string;
+    logout:string;
 }
