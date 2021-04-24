@@ -12,6 +12,7 @@ import { IndexExperienceComponent } from './experience/index-experience/index-ex
 import { HomeResolverService } from './home/home-resolver.service';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './security/login/login.component';
+import { RegisterComponent } from './security/register/register.component';
 import { AboutmeAboutmeSettingsComponent } from './settings/aboutme-aboutme-settings/aboutme-aboutme-settings.component';
 import { AboutmeSettingsComponent } from './settings/aboutme-settings/aboutme-settings.component';
 import { ContactSettingsComponent } from './settings/contact-settings/contact-settings.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   {path: 'aboutme', component: IndexAboutmeComponent, resolve:{experiences: ExperiencesResolverService, about: AboutMeResolverService}, data: {animation: 'AboutPage'}},
   {path: 'contact', component: IndexContactComponent, data: { animation: 'ContactPage'}},
   {path: 'login', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
   {path: 'settings', component:IndexSettingsComponent, 
     children:[
       {path: '', redirectTo: 'home', pathMatch: 'full'},
