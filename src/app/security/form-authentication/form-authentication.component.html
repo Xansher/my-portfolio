@@ -1,1 +1,14 @@
-<p>form-authentication works!</p>
+<h2>{{action}}</h2>
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+    <mat-form-field appearance="outline">
+        <mat-label>{{labels.email}}</mat-label>
+        <input matInput formControlName="email">
+        <mat-error>{{labels.emailError}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+        <mat-label>{{labels.password}}</mat-label>
+        <input type="password" matInput formControlName="password">
+        <mat-error>{{labels.passwordError}}</mat-error>
+    </mat-form-field>
+    <button mat-stroked-button type="submit" class="edit-button">{{action}}</button>
+</form>
