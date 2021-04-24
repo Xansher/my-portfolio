@@ -36,6 +36,7 @@ import { ContactSettingsComponent } from './settings/contact-settings/contact-se
 import { AuthorizeViewComponent } from './security/authorize-view/authorize-view.component';
 import { FormAuthenticationComponent } from './security/form-authentication/form-authentication.component';
 import { LoginComponent } from './security/login/login.component';
+import { RegisterComponent } from './security/register/register.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { LoginComponent } from './security/login/login.component';
     ContactSettingsComponent,
     AuthorizeViewComponent,
     FormAuthenticationComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
