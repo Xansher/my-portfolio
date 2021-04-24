@@ -12,6 +12,7 @@ import { IndexExperienceComponent } from './experience/index-experience/index-ex
 import { HomeResolverService } from './home/home-resolver.service';
 import { HomeComponent } from './home/home.component';
 import { IsAdminGuard } from './is-admin.guard';
+import { IsLoggedGuard } from './is-logged.guard';
 import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
 import { AboutmeAboutmeSettingsComponent } from './settings/aboutme-aboutme-settings/aboutme-aboutme-settings.component';
@@ -28,8 +29,8 @@ const routes: Routes = [
   {path: '', component: HomeComponent, resolve: {home: HomeResolverService},data: {animation: 'HomePage'}},
   {path: 'aboutme', component: IndexAboutmeComponent, resolve:{experiences: ExperiencesResolverService, about: AboutMeResolverService}, data: {animation: 'AboutPage'}},
   {path: 'contact', component: IndexContactComponent, data: { animation: 'ContactPage'}},
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent, canActivate: [IsLoggedGuard]},
+  {path: 'register', component: RegisterComponent, canActivate: [IsLoggedGuard]},
   {path: 'settings', component:IndexSettingsComponent,  
   canActivate: [IsAdminGuard], canActivateChild:[IsAdminGuard],
     children:[
