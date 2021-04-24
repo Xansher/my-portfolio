@@ -23,9 +23,14 @@
         <div>
             <a mat-button routerLinkActive="active" routerLink="portfolio">Portfolio</a>
         </div>
-        <div>
-            <a mat-button routerLinkActive="active" routerLink="settings">{{model.settings}}</a>
-        </div>
+        <app-authorize-view [role]="'admin'">
+            <ng-container authorized>
+                <div>
+                    <a mat-button routerLinkActive="active" routerLink="settings">{{model.settings}}</a>
+                </div>
+            </ng-container>
+        </app-authorize-view>
+        
         <div class="space">
 
         </div>
@@ -35,9 +40,19 @@
                 ENG/PL
             </button>
         </div>
-        <div class="mar-left">
-            <a mat-button routerLink="login" class="btn">{{model.login}}</a>
-        </div>
+        <app-authorize-view>
+            <ng-container authorized>
+                <div class="mar-left">
+                    <a mat-button (click)="logout()" class="btn">{{model.logout}}</a>
+                </div>
+            </ng-container>
+            <ng-container notAuthorized>
+                <div class="mar-left">
+                    <a mat-button routerLink="login" class="btn">{{model.login}}</a>
+                </div>
+            </ng-container>
+        </app-authorize-view>
+        
     
     </div>
         
