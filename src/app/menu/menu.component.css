@@ -79,4 +79,8 @@ mat-icon {
         
         
     }
+    .admin-nav-container {
+        display: flex;
+        flex-direction: row;
+    }
 }
