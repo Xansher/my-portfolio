@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { SecurityService } from '../security/security.service';
 import { menuDTO } from './menu.model';
 
@@ -9,7 +10,7 @@ import { menuDTO } from './menu.model';
 })
 export class MenuComponent implements OnInit {
 
-  constructor(private securityService:SecurityService) { }
+  constructor(private securityService:SecurityService, private router: Router) { }
 
   model:menuDTO;
   menuVisible= false;
@@ -28,6 +29,12 @@ export class MenuComponent implements OnInit {
     this.menuVisible =! this.menuVisible;
   }
 
+  hideMenu(){
+    if(this.menuVisible){
+      this.menuVisible=false;
+    }
+  }
+
   changeLanguage(){
     const language=localStorage.getItem('lang');
     if(language=='english'){
@@ -39,6 +46,7 @@ export class MenuComponent implements OnInit {
   }
   logout(){
     this.securityService.logout();
+    this.router.navigate(['/']);
   }
 
 }
