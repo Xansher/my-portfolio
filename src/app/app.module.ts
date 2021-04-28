@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -38,6 +38,7 @@ import { FormAuthenticationComponent } from './security/form-authentication/form
 import { LoginComponent } from './security/login/login.component';
 import { RegisterComponent } from './security/register/register.component';
 import { DisplayErrorsComponent } from './utilities/display-errors/display-errors.component';
+import { JwtInterceptorService } from './security/jwt-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -84,7 +85,11 @@ import { DisplayErrorsComponent } from './utilities/display-errors/display-error
     SweetAlert2Module.forRoot(),
     MarkdownModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: JwtInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
