@@ -13,7 +13,12 @@
                         <img [src]="item.icon"/>
                         <div> {{item.name}} </div>
                         <div [class.description--hover]="item.hover" class="description">
-                            {{item.description}}
+                            <div *ngIf="lang=='polish'">
+                                {{item.polishDescription}}
+                            </div>
+                            <div *ngIf="lang=='english'">
+                                {{item.englishDescription}}
+                            </div>
                         </div>
                     </div>
                     

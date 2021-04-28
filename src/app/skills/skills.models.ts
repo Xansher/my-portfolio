@@ -1,12 +1,14 @@
 export interface skillDTO{
     id:number;
     name: string;
-    description: string;
+    englishDescription: string;
+    polishDescription: string;
     icon: string;
 }
 
 export interface skillCreationDTO{
     name: string;
-    description: string;
+    englishDescription: string;
+    polishDescription: string;
     icon: File;
 }

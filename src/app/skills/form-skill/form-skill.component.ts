@@ -25,7 +25,8 @@ export class FormSkillComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       name: '',
-      description: '',
+      englishDescription: '',
+      polishDescription: '',
       icon: ''
     });
     if (this.model !== undefined) {
@@ -33,8 +34,11 @@ export class FormSkillComponent implements OnInit {
     }
   }
 
-  changeMarkdown(content:string){
-    this.form.get('description').setValue(content);
+  changeEnglishMarkdown(content:string){
+    this.form.get('englishDescription').setValue(content);
+  }
+  changePolishMarkdown(content:string){
+    this.form.get('polishDescription').setValue(content);
   }
 
   onImageSelected(icon){

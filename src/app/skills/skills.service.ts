@@ -40,8 +40,11 @@ export class SkillsService {
   private buildFormData(skill:skillCreationDTO):FormData {
     const formData = new FormData();
     formData.append('name',skill.name);
-    if (skill.description) {
-      formData.append('description',skill.description);
+    if (skill.englishDescription) {
+      formData.append('englishDescription',skill.englishDescription);
+    }
+    if (skill.polishDescription) {
+      formData.append('polishDescription',skill.polishDescription);
     }
     if(skill.icon){
       formData.append('icon', skill.icon);

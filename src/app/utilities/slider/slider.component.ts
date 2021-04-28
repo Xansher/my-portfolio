@@ -40,7 +40,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
   rightArrowVisible:boolean= false;
 
   width:number;
-
+  lang:string;
 
   loadObservable$: Observable<Event>
   loadSubscription$: Subscription
@@ -48,7 +48,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
   resizeSubscription$: Subscription
 
   ngOnInit(): void {
-    
+    this.lang=localStorage.getItem('lang');
     
     this.setSize();
 
