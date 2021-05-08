@@ -36,6 +36,10 @@ export class SkillsService {
     return this.http.delete(this.apiURL+`/${id}`);
   }
 
+  saveOrders(order){
+    return this.http.put(this.apiURL+'/order', order);
+  }
+
 
   private buildFormData(skill:skillCreationDTO):FormData {
     const formData = new FormData();
