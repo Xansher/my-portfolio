@@ -9,6 +9,7 @@ import {MatTabsModule} from '@angular/material/tabs'
 import {MatTableModule} from '@angular/material/table'
 import {MatDatepickerModule} from '@angular/material/datepicker'
 import {MatNativeDateModule} from '@angular/material/core'
+import {DragDropModule} from '@angular/cdk/drag-drop'
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {MatNativeDateModule} from '@angular/material/core'
     MatTabsModule,
     MatTableModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    DragDropModule
   ],
   imports: [
     CommonModule,
