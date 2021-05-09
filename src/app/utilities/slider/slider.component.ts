@@ -27,7 +27,7 @@ export class SliderComponent implements OnInit, AfterViewInit{
   list:any[];
   @Input()
   sliderWidth:number =0;
-  cardHeight:number=350;
+  cardHeight:number=400;
   cardWidth:number=0;
   translate:number=0;
   itemsPerPage=0;
